@@ -1,4 +1,4 @@
-package Application;
+package Model;
 
 /**
  * Booking class is used to capture the details of a booking. 

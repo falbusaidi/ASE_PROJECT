@@ -1,4 +1,4 @@
-package Application;
+package Model;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;

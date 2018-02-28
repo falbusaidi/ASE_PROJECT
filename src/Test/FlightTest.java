@@ -1,7 +1,8 @@
 package Test; 
 
-import Application.Flight;
 import org.junit.Test;
+
+import Model.Flight;
 
 import static org.junit.Assert.*;
 

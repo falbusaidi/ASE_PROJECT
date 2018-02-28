@@ -1,10 +1,8 @@
 package Test; 
-import Application.FlightList;
-
-import Application.Flight;
-
-
 import org.junit.Test;
+
+import Model.Flight;
+import Model.FlightList;
 
 import static org.junit.Assert.*;
 

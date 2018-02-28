@@ -1,4 +1,4 @@
-package Application;
+package Model;
 
 
 import java.io.File;
