@@ -113,7 +113,7 @@ public class GUICheckInWindow extends JFrame implements ActionListener
 							
 								
 								// set the check-in status 
-								booking.CheckIn(weight, height,width,depth); 
+								booking.CheckIn(); 
 							
 								// get the excess fees and display it 
 								TF_excessFees.setText(Double.toString(booking.getExcessFees()));

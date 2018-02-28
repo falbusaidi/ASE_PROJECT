@@ -1,6 +1,5 @@
 package Application;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
 /**
  * This class acts as a wrapper class to the HashMap which contains the list of Bookings 
  * @author fahad
@@ -151,6 +151,9 @@ public class BookingList {
 		
 		return bookingslist.keySet().size(); 
 	}
-	
+	public HashMap <String,Booking> getBookingslist() {
+		return bookingslist;
+	}
+
 
 }
