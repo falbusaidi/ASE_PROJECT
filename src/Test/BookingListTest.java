@@ -1,11 +1,13 @@
 package Test; 
-import Application.FlightList;
-import Application.Passenger;
-import Application.BookingList;
-import Application.Booking;
-import Application.Flight;
-import Application.BookingNotFoundException;
 import org.junit.Test;
+
+import Model.Booking;
+import Model.BookingList;
+import Model.BookingNotFoundException;
+import Model.Flight;
+import Model.FlightList;
+import Model.Passenger;
+
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package Application;
+package Model;
 
 
 import java.io.File;
@@ -7,7 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 /**
@@ -152,5 +154,28 @@ public class BookingList {
 		return bookingslist.keySet().size(); 
 	}
 	
+	public HashMap<String, Booking> Getbookingslist() {
+		
+		return bookingslist;
+	}
+	
+	/**
+	 * Return List of Keys in the HashMap 
+	 * @return List of Keys in the HashMap in random manner 
+	 */
+	public List ShuffleKeys() {
+		
+		List HashKeys = new ArrayList(this.bookingslist.keySet());
+		Collections.shuffle(HashKeys);
+		return HashKeys;
+	}
+	/**
+	 * Return Object of Keys in the HashMap 
+	 * @return Object of Keys in the HashMap after shuffle
+	 */
+	public Object ReturnBooking(int n) {
+		List Keys = this.ShuffleKeys();
+		return Keys.get(n);
+	}
 
 }

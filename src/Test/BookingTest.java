@@ -1,11 +1,10 @@
 package Test; 
 
-import Application.Passenger;
-
-import Application.Booking;
-import Application.Flight;
-
 import org.junit.Test;
+
+import Model.Booking;
+import Model.Flight;
+import Model.Passenger;
 
 import static org.junit.Assert.*;
 

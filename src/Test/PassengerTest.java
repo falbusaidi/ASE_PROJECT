@@ -1,9 +1,9 @@
 
 package Test; 
 
-import Application.Passenger;
-
 import org.junit.Test;
+
+import Model.Passenger;
 
 import static org.junit.Assert.*;
 
