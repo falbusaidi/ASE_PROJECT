@@ -110,7 +110,7 @@ public class Booking {
      * @param Volume
      * @return
      */
-    public int CheckIn(double weight, double height, double width, double depth)
+    public int CheckIn()
     {
     	// check if the passenger of this booking is already checked in 
     	if (checkInStatus)

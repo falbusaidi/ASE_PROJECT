@@ -7,46 +7,27 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import Application.BookingList;
+import Model.BookingList;
 
 public class PassengerThread extends Thread{
 	private Thread t;
 	public List keys;
-	
-	@Override
+	FlightList flightlist = new FlightList();
+	BookingList bookinglist = new BookingList(flightlist);
+	int FIVE_SECOND = 5000; 
 	public void run() {
+		try {
+			Thread.sleep(FIVE_SECOND);
+		} catch (InterruptedException e) {
 
-		try 
-		{
-			FlightList flightlist = new FlightList();
-			BookingList bookinglist = new BookingList(flightlist);
-		
-			flightlist.populateFlight("FlightList.csv");
-			bookinglist.populateBookingDetails("PassengerList.csv");
-
-			List keys = new ArrayList(bookinglist.getBookingslist().keySet());
-			Collections.shuffle(keys);
-
-//			System.out.println(keys);
-		}
-
-		catch ( FileNotFoundException e)
-		{
-			System.out.println(e.getMessage());
+			System.out.println("Thread interrupted.");
 		}
 
 	}
 	
-	public void start () {
-	      if (t == null) {
-	         t = new Thread (this);
-	         t.start ();
-	         
-	      } 
+	public Booking getBooking(Object key) {
+		Booking booking = bookinglist.Getbookingslist().get(key);
+		return booking;
 	}
 	
-	public List getKey() {
-
-		return keys;
-	}
 }

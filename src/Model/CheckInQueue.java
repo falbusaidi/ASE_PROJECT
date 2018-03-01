@@ -6,47 +6,34 @@ import java.io.Serializable;
 import java.util.AbstractQueue;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import Application.Booking;
-import Application.BookingList;
+import Model.Booking;
+import Model.BookingList;
 
-public class CheckInQueue {
+public class CheckInQueue{
+	Queue<Booking> CheckInQueue = new LinkedList<Booking>();
+	FlightList flightlist = new FlightList();
+	BookingList bookinglist = new BookingList(flightlist);
+	PassengerThread thread = new PassengerThread();
 	
-	public void InQueue() {		
-		try 
-		{
-			FlightList flightlist = new FlightList();
-			BookingList bookinglist = new BookingList(flightlist);
+	// Call to add Passenger into the line
+	public void EnQueue(Object key) {		
+		thread.start();
+		Booking booking = thread.getBooking(key);
+		CheckInQueue.add(booking);
 		
-			flightlist.populateFlight("FlightList.csv");
-			bookinglist.populateBookingDetails("PassengerList.csv");
-			LinkedList<Booking> CheckInQueue = new LinkedList<Booking>();
-			
-			List keys = new ArrayList(bookinglist.getBookingslist().keySet());
-			Collections.shuffle(keys);
-			
-			
-			for (int i = 0; i < keys.size(); i++)
-			{
-				Booking booking = bookinglist.getBookingslist().get(keys.get(i));
-				CheckInQueue.add(booking);
-
-			}
-
-
-		}
-
-		catch ( FileNotFoundException e)
-		{
-			System.out.println(e.getMessage());
-		}
-
-
-		
+	}
+	
+	// Call to remove the head of the Queue after finishing Checking In
+	public void DeQueue(Object key) {
+		thread.start();
+		Booking booking = thread.getBooking(key);
+		CheckInQueue.remove(booking);
 		
 	}
 }
