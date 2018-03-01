@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 /**
  * This class acts as a wrapper class to the HashMap which contains the list of Bookings 
@@ -176,6 +177,17 @@ public class BookingList {
 	public Object ReturnBooking(int n) {
 		List Keys = this.ShuffleKeys();
 		return Keys.get(n);
+	}
+	
+	public Booking getBooking()
+	{
+		Random randomGenerator = new Random();
+		List HashKeys = new ArrayList(this.bookingslist.keySet());
+		int index = randomGenerator.nextInt(HashKeys.size());
+		Booking booking = bookingslist.get(HashKeys.get(index)); 
+		if (booking!= null)  
+			bookingslist.remove(HashKeys.get(index)); 
+		return booking; 
 	}
 
 }
