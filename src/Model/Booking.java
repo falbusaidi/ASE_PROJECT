@@ -15,8 +15,10 @@ public class Booking {
     private double weight;
     private double volume;
     private double height;
-    private double depth;
-    private double width; 
+    
+	private double depth;
+   
+	private double width; 
     public static int counter = 0; 
    
     /**
@@ -110,19 +112,28 @@ public class Booking {
      * @param Volume
      * @return
      */
-    public int CheckIn()
-    {
-    	// check if the passenger of this booking is already checked in 
+    public int CheckIn(double weight, double height, double width, double depth) {
+		// TODO Auto-generated method stub
     	if (checkInStatus)
     		return -1; 
        checkInStatus = true;
-       this.weight = 15.00 + (25.00*Math.random());  // Generate the random weight from 15 t0 40 for realistic weight
-       this.height = 40.00 + Math.floor(40.00*Math.random()); // Generate the random height with max value of 80 cm
-       this.width = 40.00 + Math.floor(70*Math.random()); // Generate the random width with max value of 119 cm
-       this.depth = 40.00 + Math.floor(70.00*Math.random()); // Generate the random depth with max value of 119 cm
+       this.weight = weight ;
+       this.height = height;
+       this.width = width ;
+       this.depth = depth; 
        volume = this.depth*this.height*this.width; 
        counter++;
        return 0; 
+		
+	}
+    public double CheckIn()
+    {
+    	// check if the passenger of this booking is already checked in 
+    	if (checkInStatus)
+    		return getExcessFees(); 
+       checkInStatus = true;
+       counter++;
+       return this.getExcessFees(); 
         
     }
 
@@ -214,5 +225,25 @@ public class Booking {
     public double getWidth() {
 		return width;
 	}
+    
+    
+    public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+
+	public void setDepth(double depth) {
+		this.depth = depth;
+	}
+
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+	
+	public void setHeight(double height) {
+		this.height = height;
+	}
+	
 }
 

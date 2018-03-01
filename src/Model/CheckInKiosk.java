@@ -13,12 +13,41 @@ public class CheckInKiosk {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
+			// setup all the objects
 			FlightList flightlist = new FlightList();
 			BookingList bookinglist = new BookingList(flightlist);
-			GUIMainWindow gui = new GUIMainWindow(bookinglist);
+			CheckInQueue passengerQueue = new CheckInQueue(); 
+			PassengerThread passengerThread = new PassengerThread(bookinglist,passengerQueue); 
+			DeskManager deskmanager = new DeskManager(passengerQueue, 3,3); 
+			
+			// load the flight and booking information
 			flightlist.populateFlight("FlightList.csv");
 			bookinglist.populateBookingDetails("PassengerList.csv");
-			gui.run(); 
+			
+			//star the passnger queue 
+			Thread t = new Thread(passengerThread);
+			t.start();
+			
+			// start deskmanager
+			
+			try {
+				//Thread.sleep(5000);
+				Thread.sleep(5000);
+				deskmanager.OpenDesks();
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//deskmanager.closeAllDesks();
+			//passengerThread.stop();
+			
+			
+			
+			
+			//GUIMainWindow gui = new GUIMainWindow(bookinglist);
+			
+			// gui.run(); 
 			
 		}
 		catch ( FileNotFoundException e)
