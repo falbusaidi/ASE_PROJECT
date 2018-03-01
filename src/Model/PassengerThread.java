@@ -1,4 +1,4 @@
-package Application;
+package Model;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+
+import Application.BookingList;
 
 public class PassengerThread extends Thread{
 	private Thread t;

@@ -116,10 +116,10 @@ public class Booking {
     	if (checkInStatus)
     		return -1; 
        checkInStatus = true;
-       this.weight = weight;
-       this.height= height;
-       this.width=width; 
-       this.depth= depth;
+       this.weight = 15.00 + (25.00*Math.random());  // Generate the random weight from 15 t0 40 for realistic weight
+       this.height = 40.00 + Math.floor(40.00*Math.random()); // Generate the random height with max value of 80 cm
+       this.width = 40.00 + Math.floor(70*Math.random()); // Generate the random width with max value of 119 cm
+       this.depth = 40.00 + Math.floor(70.00*Math.random()); // Generate the random depth with max value of 119 cm
        volume = this.depth*this.height*this.width; 
        counter++;
        return 0; 

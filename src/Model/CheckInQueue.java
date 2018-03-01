@@ -1,4 +1,4 @@
-package Application;
+package Model;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,9 +11,12 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+import Application.Booking;
+import Application.BookingList;
+
 public class CheckInQueue {
 	
-	public static void main(String args[]){		
+	public void InQueue() {		
 		try 
 		{
 			FlightList flightlist = new FlightList();
