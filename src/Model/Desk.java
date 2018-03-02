@@ -57,6 +57,9 @@ public class Desk implements Runnable{
 		return delay;
 	}
 
+	/**
+	 * @param delay
+	 */
 	public void setDelay(int delay) {
 		this.delay = delay;
 	}

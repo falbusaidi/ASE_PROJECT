@@ -31,8 +31,6 @@ public class CheckInKiosk {
 			
 			
 			
-			
-			
 			//GUIMainWindow gui = new GUIMainWindow(bookinglist);
 			
 			// gui.run(); 

@@ -57,6 +57,9 @@ public class PassengerThread implements Runnable{
 	}
 
 
+	/**
+	 * @param delay
+	 */
 	public void setDelay(int delay) {
 		this.delay = delay;
 	}
