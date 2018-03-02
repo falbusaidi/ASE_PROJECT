@@ -8,6 +8,8 @@ public class Desk implements Runnable{
 	private int delay = 5000;
 	
 	
+	
+
 	public Desk(int deskID, CheckInQueue queue)
 	{
 		this.deskID = deskID;
@@ -49,6 +51,17 @@ public class Desk implements Runnable{
 	public void Stop()
 	{
 		running = false; 
+	}
+	
+	public int getDelay() {
+		return delay;
+	}
+
+	/**
+	 * @param delay
+	 */
+	public void setDelay(int delay) {
+		this.delay = delay;
 	}
 	
 	

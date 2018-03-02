@@ -27,21 +27,7 @@ public class CheckInKiosk {
 			//star the passnger queue 
 			Thread t = new Thread(passengerThread);
 			t.start();
-			
-			// start deskmanager
-			
-			try {
-				//Thread.sleep(5000);
-				Thread.sleep(5000);
-				deskmanager.OpenDesks();
-				
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			//deskmanager.closeAllDesks();
-			//passengerThread.stop();
-			
+			deskmanager.OpenDesks();
 			
 			
 			

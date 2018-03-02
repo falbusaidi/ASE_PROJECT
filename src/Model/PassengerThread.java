@@ -9,7 +9,8 @@ public class PassengerThread implements Runnable{
 	private BookingList bookinglist; 
 	private CheckInQueue queue; 
 	private boolean running; 
-	private int FIVE_SECOND = 5000; 
+	private int delay = 5000; 
+	
 	
 	public PassengerThread(BookingList bookinglist,CheckInQueue queue ) {
 		this.bookinglist = bookinglist; 
@@ -20,7 +21,7 @@ public class PassengerThread implements Runnable{
 	public void run() {
 		running = true; 
 		
-		while ((bookinglist.GetNumberOfBookings() > 0)) {
+		while (running &&(bookinglist.GetNumberOfBookings() > 0)) {
 			
 			try {
 				// retrieve the random bookings object 
@@ -36,7 +37,7 @@ public class PassengerThread implements Runnable{
 				queue.EnQueue(booking);
 				
 				// wait for 5 second before adding the next passenger
-				Thread.sleep(FIVE_SECOND);
+				Thread.sleep(delay);
 			} catch (InterruptedException e) {
 
 				System.out.println("Thread interrupted.");
@@ -49,6 +50,18 @@ public class PassengerThread implements Runnable{
 	public void stop()
 	{
 		running = false; 
+	}
+	
+	public int getDelay() {
+		return delay;
+	}
+
+
+	/**
+	 * @param delay
+	 */
+	public void setDelay(int delay) {
+		this.delay = delay;
 	}
 		
 }
