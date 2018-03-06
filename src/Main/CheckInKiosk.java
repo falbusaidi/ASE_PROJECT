@@ -1,7 +1,13 @@
 
-package Model;
+package Main;
 
 import java.io.FileNotFoundException;
+
+import Model.BookingList;
+import Model.CheckInQueue;
+import Model.DeskManager;
+import Model.FlightList;
+import Model.PassengerThread;
 
 /**
  * 

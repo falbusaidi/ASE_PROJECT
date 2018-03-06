@@ -9,7 +9,7 @@ public class PassengerThread implements Runnable{
 	private BookingList bookinglist; 
 	private CheckInQueue queue; 
 	private boolean running; 
-	private int delay = 5000; 
+	private int delay = 500; 
 	
 	
 	public PassengerThread(BookingList bookinglist,CheckInQueue queue ) {

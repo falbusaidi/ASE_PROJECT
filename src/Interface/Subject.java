@@ -1,5 +1,5 @@
-package Model; 
-import View.Observer;
+package Interface; 
+
 
 /**
  * The Subject part of the Observer pattern.
