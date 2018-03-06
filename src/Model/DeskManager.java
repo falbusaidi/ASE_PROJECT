@@ -8,6 +8,10 @@ import Interface.Subject;
 public class DeskManager {
 	
 	private ArrayList<Desk> desks; 
+	public ArrayList<Desk> getDesks() {
+		return desks;
+	}
+
 	private int NumberofDesks;
 	private int DesksToOpen; 
 	private CheckInQueue queue ; 

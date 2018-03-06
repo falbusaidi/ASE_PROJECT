@@ -28,6 +28,7 @@ public void Setup()
 	passengerDetails.setLineWrap(true);
 	passengerDetails.setWrapStyleWord(true);
 	passengerDetails.setEditable(false);
+	passengerDetails.setSize(300, 100);
 	this.add(passengerDetails);
 	
 	

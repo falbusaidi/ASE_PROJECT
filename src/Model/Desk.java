@@ -31,6 +31,9 @@ public class Desk implements Runnable , Subject{
 		running = true; 
 		while (running)
 		{
+			processMessage="";
+			processMessage+="Desk: "+this.deskID+"\n";
+			this.notifyObservers();
 			booking = queue.DeQueue();
 			
 			if ( booking !=null)
@@ -38,17 +41,16 @@ public class Desk implements Runnable , Subject{
 				// check in the Passenger and get any excess fees
 				double excess = booking.CheckIn();
 				// add the Passenger to flight
+							
+				processMessage+=("Processing Passenger: "+booking.GetBookingRef()+" , "+booking.GetPassenger().GetLastName()+"\n");
+				this.notifyObservers();
 				
-				System.out.print("Desk number: "+this.deskID+"\n");
-				System.out.println("Processing Booking"+booking.GetBookingRef()+","+booking.GetPassenger().GetLastName()+"\n");
-				System.out.println("Passenger had excess:"+excess+"\n");
-				
-				processMessage+="Desk number: "+this.deskID+"\n";
+				processMessage+=("Baggage weight(Kg) : "+String.format("%.2f", booking.GetWeight())+"\n");
+				processMessage+=("Baggage Dimensions(H*W*D): "+booking.getHeight()+"x"+booking.getWidth()+"x"+booking.getDepth()+"\n");
 				this.notifyObservers();
-				processMessage+=("Processing Booking"+booking.GetBookingRef()+","+booking.GetPassenger().GetLastName()+"\n");
+				processMessage+="Excess Fees: £"+String.format("%.2f", excess)+"\n"; 
 				this.notifyObservers();
-				processMessage+="Passenger had excess:"+excess+"\n";
-				this.notifyObservers();
+				// ToDO: use Flight List to add to flight
 				booking.GetFlight().addPassengerToFlight(booking);
 				try {
 					

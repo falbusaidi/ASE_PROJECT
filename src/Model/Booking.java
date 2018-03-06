@@ -102,7 +102,7 @@ public class Booking {
      */
     public  double GetVolume()
     {
-        return volume;
+        return  this.depth*this.height*this.width; 
     }
 
 

@@ -8,6 +8,7 @@ import Model.CheckInQueue;
 import Model.DeskManager;
 import Model.FlightList;
 import Model.PassengerThread;
+import View.KioskGUI;
 
 /**
  * 
@@ -34,6 +35,7 @@ public class CheckInKiosk {
 			Thread t = new Thread(passengerThread);
 			t.start();
 			deskmanager.OpenDesks();
+			KioskGUI gui = new KioskGUI(passengerQueue,flightlist,deskmanager); 
 			
 			
 			
