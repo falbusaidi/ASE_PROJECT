@@ -11,6 +11,8 @@ public class FlightList {
 	
 	HashMap<String,Flight> flightmap ;			//Create new HashMap for the flights
 	
+	
+
 	public FlightList()
 	{
 		flightmap = new HashMap<String,Flight>();
@@ -91,5 +93,12 @@ public class FlightList {
 		}
 		
 	}
+	
+	public HashMap<String, Flight> getFlightmap() {
+		return flightmap;
+	}
+	// TODO method to assign passenger
+	// add booking to flight and increment the passenger number, total weight and total volume
+	
 	
 }

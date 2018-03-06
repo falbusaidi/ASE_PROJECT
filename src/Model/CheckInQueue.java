@@ -20,7 +20,7 @@ public class CheckInQueue{
 	
 	// Call to remove the head of the Queue after finishing Checking In
 	public synchronized Booking DeQueue() {
-		
+		// TODO : also add a check to see if all passengers have already being processed
 		while(CheckInQueue.isEmpty()) { 
 			try {
 				wait();
