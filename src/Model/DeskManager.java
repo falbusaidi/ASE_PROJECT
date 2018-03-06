@@ -2,6 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
+import Interface.Observer;
+import Interface.Subject;
+
 public class DeskManager {
 	
 	private ArrayList<Desk> desks; 
@@ -10,12 +13,14 @@ public class DeskManager {
 	private CheckInQueue queue ; 
 	
 	
+	
 	public DeskManager(CheckInQueue queue, int NumberofDesks, int DesksToOpen )
 	{
 		this.queue = queue; 
 		desks = new ArrayList<Desk>(); 
 		this.NumberofDesks = NumberofDesks;
 		this.DesksToOpen = DesksToOpen;
+		
 		initializeDesks(); 
 	}
 	
@@ -43,7 +48,6 @@ public class DeskManager {
 			desk.Stop();
 		}
 	}
-	
 	
 	
 

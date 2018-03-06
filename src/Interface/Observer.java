@@ -1,4 +1,4 @@
-package View;
+package Interface; 
 /**
  * The Observer part of the Observer pattern.
  * All classes implementing this interface MUST have this method.
