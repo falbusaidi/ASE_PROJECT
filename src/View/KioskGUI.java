@@ -47,11 +47,11 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	QueuePanel.setLayout(new FlowLayout());
 	
 
-	JScrollPane scroll = new JScrollPane(new CheckInQueueDisplay(queueModel));
+//	JScrollPane scroll = new JScrollPane(new CheckInQueueDisplay(queueModel));
 	
-	QueuePanel.add(scroll);
+//	QueuePanel.add(scroll);
 
-//	QueuePanel.add(new CheckInQueueDisplay(queueModel)); 
+	QueuePanel.add(new CheckInQueueDisplay(queueModel)); 
 	
 	this.add(QueuePanel, BorderLayout.NORTH);
 	 

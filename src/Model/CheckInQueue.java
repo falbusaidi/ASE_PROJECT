@@ -64,6 +64,11 @@ public class CheckInQueue implements Subject{
 	}
 	
 	public String getQueueDetail() {
+
+		for(Booking object : CheckInQueue) {
+		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName();
+		}
+		
 		return processMessage;
 	}
 	
