@@ -5,9 +5,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import Interface.Observer;
+import Interface.Subject;
 
 
-public class CheckInQueue{
+public class CheckInQueue implements Subject{
 
 	private String processMessage;
 	private ArrayList<Observer> observers; 
