@@ -8,20 +8,30 @@ public class PassengerThread implements Runnable{
 	
 	private BookingList bookinglist; 
 	private CheckInQueue queue; 
-	private boolean running; 
+	private boolean running; // used to control the thread execution to start or stop
 	private int delay = 500; 
 	
 	
+	/**constructor
+	 * @param bookinglist : reference to bookinglist which holds the collection of bookings from the file
+	 * @param queue : represent the passenger queue where bookings are going to be inserted to be processed by the desks
+	 */
 	public PassengerThread(BookingList bookinglist,CheckInQueue queue ) {
 		this.bookinglist = bookinglist; 
 		this.queue = queue; 
 	}
 	
 
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 * runs the thread to read bookings from bookinglist and insert it into the passenger queue
+	 */
 	public void run() {
 		running = true; 
+	
 		
 		while (running &&(bookinglist.GetNumberOfBookings() > 0)) {
+			
 			
 			try {
 				// retrieve the random bookings object 
@@ -38,6 +48,11 @@ public class PassengerThread implements Runnable{
 				
 				// wait for 5 second before adding the next passenger
 				Thread.sleep(delay);
+				
+				if (bookinglist.GetNumberOfBookings()==0) {
+					
+					queue.setDone(true);
+				}
 			} catch (InterruptedException e) {
 
 				System.out.println("Thread interrupted.");
@@ -47,21 +62,30 @@ public class PassengerThread implements Runnable{
 
 	}
 	
+	/**
+	 * used to stop the processing of the thread by setting a boolean variable 
+	 */
 	public void stop()
 	{
 		running = false; 
 	}
 	
+	/**
+	 * get the delay between each read and insert of passenger from the bookinglist into the queue
+	 * @return delay represented in milliseconds
+	 */
 	public int getDelay() {
 		return delay;
 	}
 
 
 	/**
-	 * @param delay
+	 * Sets the thread delay between each read and insert of passenger from the bookinglist into the queue 
+	 * @param delay represented in milliseconds
 	 */
 	public void setDelay(int delay) {
 		this.delay = delay;
+		
 	}
 		
 }

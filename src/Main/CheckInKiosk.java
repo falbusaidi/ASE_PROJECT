@@ -3,12 +3,14 @@ package Main;
 
 import java.io.FileNotFoundException;
 
+import Controller.Controller;
 import Model.BookingList;
 import Model.CheckInQueue;
 import Model.DeskManager;
 import Model.FlightList;
 import Model.PassengerThread;
 import View.KioskGUI;
+import View.SetSimulationTime;
 
 /**
  * 
@@ -36,7 +38,8 @@ public class CheckInKiosk {
 			t.start();
 			deskmanager.OpenDesks();
 			KioskGUI gui = new KioskGUI(passengerQueue,flightlist,deskmanager); 
-			
+			SetSimulationTime setGui = new SetSimulationTime(deskmanager,passengerThread); 
+			Controller controller = new Controller(setGui,deskmanager,passengerThread);
 			
 			
 			//GUIMainWindow gui = new GUIMainWindow(bookinglist);

@@ -65,6 +65,7 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	this.add(flightPanel, BorderLayout.SOUTH);
 	
 	this.setSize(1000, 280);
+	this.setTitle("Check-in Simulation");
 	setVisible(true);
 }
 
