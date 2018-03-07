@@ -3,10 +3,13 @@ package View;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.util.Map;
+import java.util.Queue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
+import Model.Booking;
 import Model.CheckInQueue;
 import Model.Desk;
 import Model.DeskManager;
@@ -22,6 +25,7 @@ private FlightList flightModel;
 
 private JPanel desksPanel; 
 private JPanel flightPanel; 
+private JPanel QueuePanel;
 
 /**
  * The 
@@ -38,8 +42,19 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	setLayout(new BorderLayout());
 	
-	// Add Panel to display the Passenger Queue
-	// 
+//	 Add Panel to display the Passenger Queue
+	QueuePanel = new JPanel();
+	QueuePanel.setLayout(new FlowLayout());
+	
+
+	JScrollPane scroll = new JScrollPane(new CheckInQueueDisplay(queueModel));
+	
+	QueuePanel.add(scroll);
+
+	QueuePanel.add(new CheckInQueueDisplay(queueModel)); 
+	
+	this.add(QueuePanel, BorderLayout.NORTH);
+	 
 	
 	// Add Panel to display the Check-in Desk Panel
 	desksPanel = new JPanel();
@@ -65,7 +80,6 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	this.add(flightPanel, BorderLayout.SOUTH);
 	
 	this.setSize(1000, 280);
-	this.setTitle("Check-in Simulation");
 	setVisible(true);
 }
 
