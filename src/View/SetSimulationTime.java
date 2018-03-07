@@ -71,7 +71,7 @@ private void setup() {
 }
 
 public void addSetListener(ActionListener al) {
-	System.out.print("hellow");
+	
 	JBupdate.addActionListener(al);
 }
 

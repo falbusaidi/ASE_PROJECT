@@ -1,11 +1,15 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.Map;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 import Model.CheckInQueue;
 import Model.Desk;
@@ -22,6 +26,7 @@ private FlightList flightModel;
 
 private JPanel desksPanel; 
 private JPanel flightPanel; 
+private JPanel queuePanel;
 
 /**
  * The 
@@ -36,19 +41,27 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	this.queueModel= queueModel; 
 	
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
-	setLayout(new BorderLayout());
+	setLayout(new GridLayout(3,1));
 	
 	// Add Panel to display the Passenger Queue
-	// 
+	queuePanel = new JPanel();
+	queuePanel.setLayout(new FlowLayout());
+	JScrollPane Jscrolpanel = new JScrollPane(new CheckInQueueDisplay(queueModel));
+	//Jscrolpanel.setSize(800, 500);
+	Jscrolpanel.setPreferredSize(new Dimension( 900,200));
+	Jscrolpanel.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	
+	queuePanel.add(Jscrolpanel);
+	this.add(queuePanel);
 	// Add Panel to display the Check-in Desk Panel
 	desksPanel = new JPanel();
 	desksPanel.setLayout(new FlowLayout());
+	
 	for(Desk desk:desksModel.getDesks())
 	{
 		desksPanel.add(new CheckInDeskDisplay(desk)); 
 	}
-	this.add(desksPanel, BorderLayout.CENTER);
+	this.add(desksPanel);
 	
 	
 	// Add Panel to display the Flight details information
@@ -62,9 +75,9 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 		flightPanel.add(new FlightDisplay(flight)); 
 	}
 	// Add Panel to display the Flight details information
-	this.add(flightPanel, BorderLayout.SOUTH);
+	this.add(flightPanel);
 	
-	this.setSize(1000, 280);
+	this.setSize(1000, 800);
 	this.setTitle("Check-in Simulation");
 	setVisible(true);
 }
