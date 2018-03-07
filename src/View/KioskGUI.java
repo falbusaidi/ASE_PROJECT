@@ -3,6 +3,7 @@ package View;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.util.Map;
+import java.util.Queue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,7 +25,7 @@ private FlightList flightModel;
 
 private JPanel desksPanel; 
 private JPanel flightPanel; 
-private JScrollPane QueuePanel;
+private JPanel QueuePanel;
 
 /**
  * The 
@@ -42,14 +43,14 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	setLayout(new BorderLayout());
 	
 //	 Add Panel to display the Passenger Queue
-//	QueuePanel = new JScrollPane();
-//	QueuePanel.setLayout(new FlowLayout());
-//	
-//	for(CheckInQueue queue:queueModel.getQueue())
-//	{
-//	QueuePanel.add(new CheckInQueueDisplay(queue)); 
-//	}
-//	this.add(desksPanel, BorderLayout.NORTH);
+	QueuePanel = new JPanel();
+	QueuePanel.setLayout(new FlowLayout());
+	JScrollPane scroll = new JScrollPane();
+	QueuePanel.add(scroll);
+
+	QueuePanel.add(new CheckInQueueDisplay(queueModel.getQueue())); 
+	
+	this.add(QueuePanel, BorderLayout.NORTH);
 	 
 	
 	// Add Panel to display the Check-in Desk Panel

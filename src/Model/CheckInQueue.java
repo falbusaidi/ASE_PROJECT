@@ -8,13 +8,11 @@ import Interface.Observer;
 
 
 public class CheckInQueue{
+
 	private String processMessage;
 	private ArrayList<Observer> observers; 
-	
 
 	Queue<Booking> CheckInQueue = new LinkedList<Booking>();
-
-	
 	
 	// Call to add Passenger into the line
 	public synchronized void EnQueue(Booking booking) {	
@@ -68,7 +66,7 @@ public class CheckInQueue{
 		return processMessage;
 	}
 	
-	public Queue<Booking> getQueue(){
+	public CheckInQueue getQueue(){
 		return CheckInQueue;
 	}
 }
