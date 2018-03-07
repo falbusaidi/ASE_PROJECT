@@ -6,7 +6,9 @@ import java.util.Map;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
+import Model.Booking;
 import Model.CheckInQueue;
 import Model.Desk;
 import Model.DeskManager;
@@ -22,6 +24,7 @@ private FlightList flightModel;
 
 private JPanel desksPanel; 
 private JPanel flightPanel; 
+private JScrollPane QueuePanel;
 
 /**
  * The 
@@ -38,8 +41,16 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	setLayout(new BorderLayout());
 	
-	// Add Panel to display the Passenger Queue
-	// 
+//	 Add Panel to display the Passenger Queue
+//	QueuePanel = new JScrollPane();
+//	QueuePanel.setLayout(new FlowLayout());
+//	
+//	for(CheckInQueue queue:queueModel.getQueue())
+//	{
+//	QueuePanel.add(new CheckInQueueDisplay(queue)); 
+//	}
+//	this.add(desksPanel, BorderLayout.NORTH);
+	 
 	
 	// Add Panel to display the Check-in Desk Panel
 	desksPanel = new JPanel();

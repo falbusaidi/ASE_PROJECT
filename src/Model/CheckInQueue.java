@@ -1,21 +1,28 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import Interface.Observer;
+
 
 public class CheckInQueue{
+	private String processMessage;
+	private ArrayList<Observer> observers; 
 	
-	
+
 	Queue<Booking> CheckInQueue = new LinkedList<Booking>();
+
 	
 	
 	// Call to add Passenger into the line
 	public synchronized void EnQueue(Booking booking) {	
-		
+		observers = new ArrayList<Observer>();
+		processMessage = "";
 		CheckInQueue.add(booking);
 		notifyAll();
-		System.out.println("added booking"+booking.GetBookingRef()+","+booking.GetPassenger().GetLastName());
+		processMessage += booking.GetBookingRef()+","+booking.GetPassenger().GetLastName();
 	}
 	
 	// Call to remove the head of the Queue after finishing Checking In
@@ -34,5 +41,34 @@ public class CheckInQueue{
 		return CheckInQueue.remove();
 		
 		
+	}
+	
+	public void registerObserver(Observer obs){
+		observers.add(obs); 
+	}
+
+	/**
+	 * De-register an observer with this subject
+	 */
+	public void removeObserver(Observer obs) {
+		observers.remove(obs); 
+	}
+
+	/**
+	 * Inform all registered observers that there's been an update
+	 */
+	public void notifyObservers() {
+		
+		for(Observer obs: observers) {
+			obs.update();
+		}
+	}
+	
+	public String getQueueDetail() {
+		return processMessage;
+	}
+	
+	public Queue<Booking> getQueue(){
+		return CheckInQueue;
 	}
 }
