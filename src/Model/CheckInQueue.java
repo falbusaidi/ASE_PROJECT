@@ -91,7 +91,7 @@ public class CheckInQueue implements Subject{
 	
 	public String getQueueDetail() {
 
-		for(Booking object : CheckInQueue) {
+		for(Booking object : this.getQueue()) {
 		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName();
 
 		}
@@ -100,8 +100,8 @@ public class CheckInQueue implements Subject{
 	}
 	
 	
-//	public Queue<Booking> getQueue(){
-//		return CheckInQueue;
-//	}
+	public Queue<Booking> getQueue(){
+		return CheckInQueue;
+	}
 	
 }

@@ -32,6 +32,7 @@ public void Setup()
 	QueueDetail.setWrapStyleWord(true);
 	QueueDetail.setEditable(false);
 	QueueDetail.setSize(300, 300);
+	QueueDetail.setText(model.getQueueDetail());
 	this.add(QueueDetail);
 	
 	
