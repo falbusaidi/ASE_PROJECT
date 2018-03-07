@@ -39,7 +39,7 @@ public void update()
 	// TODO: add the method to set the flight infromation in the text field
 	
 	flightDetails.setText(model.getFlightDetails());
-	System.out.println(model.getFlightDetails());
+	
 }
 
 }

@@ -8,16 +8,15 @@ import Interface.Subject;
 public class DeskManager {
 	
 	private ArrayList<Desk> desks; 
-	public ArrayList<Desk> getDesks() {
-		return desks;
-	}
-
 	private int NumberofDesks;
 	private int DesksToOpen; 
 	private CheckInQueue queue ; 
+	private int delay = 5000;
 	
 	
 	
+	
+
 	public DeskManager(CheckInQueue queue, int NumberofDesks, int DesksToOpen )
 	{
 		this.queue = queue; 
@@ -32,7 +31,7 @@ public class DeskManager {
 	{
 		for ( int i=0; i<DesksToOpen; i++)
 		{
-			desks.add(new Desk(i+1, queue));
+			desks.add(new Desk(i+1, queue,delay));
 		}
 	}
 	
@@ -53,6 +52,20 @@ public class DeskManager {
 		}
 	}
 	
+	public ArrayList<Desk> getDesks() {
+		return desks;
+	}
 	
+	public int getDelay() {
+		return delay;
+	}
 
+	public void setDelay(int delay) {
+		this.delay = delay;
+		for (Desk desk:desks)
+		{
+			desk.setDelay(delay);
+		}
+		
+	}
 }
