@@ -16,7 +16,7 @@ public class CheckInQueue implements Subject{
 
 	// Call to add Passenger into the line
 	public synchronized void EnQueue(Booking booking) {	
-		
+		observers = new ArrayList<Observer>();
 		CheckInQueue.add(booking);
 		notifyAll();
 		//System.out.println("added booking"+booking.GetBookingRef()+","+booking.GetPassenger().GetLastName());
@@ -93,7 +93,7 @@ public class CheckInQueue implements Subject{
 
 		for(Booking object : CheckInQueue) {
 		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName();
-		    System.out.println(object.GetBookingRef()+", "+object.GetPassenger().GetLastName());
+
 		}
 		
 		return processMessage;
