@@ -67,6 +67,7 @@ public class CheckInQueue implements Subject{
 
 		for(Booking object : CheckInQueue) {
 		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName();
+		    System.out.println(object.GetBookingRef()+", "+object.GetPassenger().GetLastName());
 		}
 		
 		return processMessage;
