@@ -8,7 +8,7 @@ import Interface.Observer;
 import Interface.Subject;
 
 public class CheckInQueue implements Subject{
-	
+	private String processMessage;
 	private ArrayList<Observer> observers; 
 	Queue<Booking> CheckInQueue = new LinkedList<Booking>();
 	private boolean done= false; // to indicate that no more passengers are going to be added to the queue
@@ -90,13 +90,15 @@ public class CheckInQueue implements Subject{
 	}
 	
 	public String getQueueDetail() {
-		String element = null;
-		for(Object object : CheckInQueue) {
-		    element = (String) object;
+
+		for(Booking object : CheckInQueue) {
+		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName();
+		    System.out.println(object.GetBookingRef()+", "+object.GetPassenger().GetLastName());
 		}
 		
-		return element;
+		return processMessage;
 	}
+	
 	
 //	public Queue<Booking> getQueue(){
 //		return CheckInQueue;
