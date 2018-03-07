@@ -46,13 +46,13 @@ public KioskGUI(CheckInQueue queueModel, FlightList flightModel, DeskManager des
 	QueuePanel = new JPanel();
 	QueuePanel.setLayout(new FlowLayout());
 	
-	for(Booking queue:queueModel.getQueue())
-	{
+//	for(Booking queue:queueModel.getQueue())
+//	{
 //	JScrollPane scroll = new JScrollPane(new CheckInQueueDisplay(queueModel));
 //	QueuePanel.add(scroll);
-	QueuePanel.add(new CheckInQueueDisplay(queueModel)); 
-	}
 	
+//	}
+	QueuePanel.add(new CheckInQueueDisplay(queueModel)); 
 	
 	this.add(QueuePanel, BorderLayout.NORTH);
 	 
