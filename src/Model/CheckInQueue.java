@@ -66,7 +66,7 @@ public class CheckInQueue{
 		return processMessage;
 	}
 	
-	public CheckInQueue getQueue(){
+	public Queue<Booking> getQueue(){
 		return CheckInQueue;
 	}
 }

@@ -15,7 +15,7 @@ public class CheckInQueueDisplay extends JPanel implements Observer{
 	
 private CheckInQueue model;
 private JTextArea QueueDetail; 
-public CheckInQueueDisplay(CheckInQueue queue) 
+public CheckInQueueDisplay(Queue<Booking> queue) 
 {
 	this.setLayout(new FlowLayout());
 	this.model=queue;
