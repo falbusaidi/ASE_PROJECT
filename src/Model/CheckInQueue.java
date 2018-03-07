@@ -1,19 +1,22 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import Interface.Observer;
+import Interface.Subject;
 
-public class CheckInQueue{
-	
-	
+public class CheckInQueue implements Subject{
+	private String processMessage;
+	private ArrayList<Observer> observers; 
 	Queue<Booking> CheckInQueue = new LinkedList<Booking>();
 	private boolean done= false; // to indicate that no more passengers are going to be added to the queue
 
 
 	// Call to add Passenger into the line
 	public synchronized void EnQueue(Booking booking) {	
-		
+		observers = new ArrayList<Observer>();
 		CheckInQueue.add(booking);
 		notifyAll();
 		//System.out.println("added booking"+booking.GetBookingRef()+","+booking.GetPassenger().GetLastName());
@@ -64,4 +67,41 @@ public class CheckInQueue{
 		
 		return CheckInQueue.size() == 0; 
 	}
+	
+	public void registerObserver(Observer obs){
+		observers.add(obs); 
+	}
+
+	/**
+	 * De-register an observer with this subject
+	 */
+	public void removeObserver(Observer obs) {
+		observers.remove(obs); 
+	}
+
+	/**
+	 * Inform all registered observers that there's been an update
+	 */
+	public void notifyObservers() {
+		
+		for(Observer obs: observers) {
+			obs.update();
+		}
+	}
+	
+	public String getQueueDetail() {
+
+		for(Booking object : this.getQueue()) {
+		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName();
+
+		}
+		
+		return processMessage;
+	}
+	
+	
+	public Queue<Booking> getQueue(){
+		return CheckInQueue;
+	}
+	
 }
