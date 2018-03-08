@@ -11,6 +11,7 @@ import Model.FlightList;
 import Model.PassengerThread;
 import View.KioskGUI;
 import View.SetSimulationTime;
+import Model.DeskTimer;
 
 /**
  * 
@@ -36,7 +37,9 @@ public class CheckInKiosk {
 			//star the passnger queue 
 			Thread t = new Thread(passengerThread);
 			t.start();
-			deskmanager.OpenDesks();
+			//deskmanager.OpenDesks();
+			long closeDeskTime = 30*1000;
+			DeskTimer deskstart= new DeskTimer(deskmanager, closeDeskTime);
 			KioskGUI gui = new KioskGUI(passengerQueue,flightlist,deskmanager); 
 			SetSimulationTime setGui = new SetSimulationTime(deskmanager,passengerThread); 
 			Controller controller = new Controller(setGui,deskmanager,passengerThread);
