@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import Model.DeskManager;
 import Model.PassengerThread;
 
-public class SetSimulationTime extends JFrame{
+public class SetSimulationTime extends JPanel{
 	
 private DeskManager deskModel;
 private PassengerThread passengerThread;
@@ -26,11 +26,11 @@ public SetSimulationTime(DeskManager deskModel, PassengerThread passengerThread)
 	 this.deskModel = deskModel; 
 	 this.passengerThread= passengerThread;
 	 
-	 setDefaultCloseOperation(EXIT_ON_CLOSE);
+	// setDefaultCloseOperation(EXIT_ON_CLOSE);
 	 setLayout(new BorderLayout());
 	 setup(); 
 	 this.setSize(300, 150);
-	 this.setTitle("GUI Simulation Configuration");
+	// this.setTitle("GUI Simulation Configuration");
 	 this.setVisible(true);
 
 }
