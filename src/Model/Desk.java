@@ -8,6 +8,8 @@ import Interface.Subject;
 public class Desk implements Runnable , Subject{
 
 	private int deskID;
+	
+
 	private boolean running; 
 	private CheckInQueue queue; 
 	private int delay ;
@@ -17,13 +19,15 @@ public class Desk implements Runnable , Subject{
 	
 	
 	
-
 	public Desk(int deskID, CheckInQueue queue, int delay)
 	{
 		this.deskID = deskID;
 		this.queue = queue; 
 		this.delay=delay;
 		observers = new ArrayList<Observer>();
+		processMessage="";
+		processMessage+="Desk: "+this.deskID+" is closed"+"\n";
+		notifyObservers();
 		
 	}
 	
@@ -35,7 +39,17 @@ public class Desk implements Runnable , Subject{
 			
 			processMessage="";
 			processMessage+="Desk: "+this.deskID+" is OPEN"+"\n";
-			this.notifyObservers();
+			notifyObservers();
+			
+			//check if no more Passenger to add to the queue and the queue is empty then stop and close the counter
+			if (queue.isDone() && queue.isEmpty()) {
+				running = false; 
+				processMessage="";
+				processMessage+="Desk: "+this.deskID+" is closed"+"\n";
+				processMessage+="All Passengers boarded \n";
+				notifyObservers();
+			}	
+			
 			booking = queue.DeQueue();
 			
 			if ( booking !=null)
@@ -49,7 +63,7 @@ public class Desk implements Runnable , Subject{
 				
 				processMessage+=("Baggage weight(Kg) : "+String.format("%.2f", booking.GetWeight())+"\n");
 				processMessage+=("Baggage Dimensions(H*W*D): "+booking.getHeight()+"x"+booking.getWidth()+"x"+booking.getDepth()+"\n");
-				this.notifyObservers();
+				notifyObservers();
 				processMessage+="Excess Fees: £"+String.format("%.2f", excess)+"\n"; 
 				this.notifyObservers();
 				// ToDO: use Flight List to add to flight
@@ -63,16 +77,12 @@ public class Desk implements Runnable , Subject{
 				}
 				
 			}
-			//check if no more Passenger to add to the queue and the queue is empty then stop and close the counter
-			if (queue.isDone() && queue.isEmpty()) {
-				running = false; 
-				processMessage="";
-				processMessage+="Desk: "+this.deskID+" is closed"+"\n";
-				processMessage+="All Passengers boarded \n";
-				this.notifyObservers();
-			}		
+				
 			
 		}
+		processMessage="";
+		processMessage+="Desk: "+this.deskID+" is closed"+"\n";
+		this.notifyObservers();
 		
 	}
 	
@@ -81,12 +91,13 @@ public class Desk implements Runnable , Subject{
 	 */
 	public void Stop()
 	{
-		processMessage="";
-		processMessage+="Desk: "+this.deskID+" is closed"+"\n";
-		this.notifyObservers();
 		running = false; 
 	}
 	
+	public boolean isRunning() {
+		return running;
+	}
+
 	/**
 	 * Method to get the delay for a desk between each time it processes a passenger from the queue
 	 * @return int representing the delay for the desk in milliseconds
@@ -138,4 +149,14 @@ public class Desk implements Runnable , Subject{
 		return processMessage; 
 	
 	}
+	
+	/**
+	 * Get Desk ID
+	 * @return int representing the desk ID
+	 */
+	public int getDeskID() {
+		return deskID;
+	}
+	
+	
 }

@@ -9,6 +9,7 @@ import Model.CheckInQueue;
 import Model.DeskManager;
 import Model.FlightList;
 import Model.PassengerThread;
+import View.AdminGUI;
 import View.KioskGUI;
 import View.SetSimulationTime;
 import Model.DeskTimer;
@@ -28,26 +29,20 @@ public class CheckInKiosk {
 			BookingList bookinglist = new BookingList(flightlist);
 			CheckInQueue passengerQueue = new CheckInQueue(); 
 			PassengerThread passengerThread = new PassengerThread(bookinglist,passengerQueue); 
-			DeskManager deskmanager = new DeskManager(passengerQueue, 3,3); 
+			DeskManager deskmanager = new DeskManager(passengerQueue, 4,3); 
 			
 			// load the flight and booking information
 			flightlist.populateFlight("FlightList.csv");
 			bookinglist.populateBookingDetails("PassengerList.csv");
 			
-			//star the passnger queue 
-			Thread t = new Thread(passengerThread);
-			t.start();
-			//deskmanager.OpenDesks();
-			long closeDeskTime = 30*1000;
+			//start the passenger queue 
+			new Thread(passengerThread).start();
+			long closeDeskTime = 120*1000;
 			DeskTimer deskstart= new DeskTimer(deskmanager, closeDeskTime);
 			KioskGUI gui = new KioskGUI(passengerQueue,flightlist,deskmanager); 
-			SetSimulationTime setGui = new SetSimulationTime(deskmanager,passengerThread); 
-			Controller controller = new Controller(setGui,deskmanager,passengerThread);
-			
-			
-			//GUIMainWindow gui = new GUIMainWindow(bookinglist);
-			
-			// gui.run(); 
+			AdminGUI adminGUI = new AdminGUI(deskmanager,passengerThread); 
+			Controller controller = new Controller(adminGUI,deskmanager,passengerThread);
+	
 			
 		}
 		catch ( FileNotFoundException e)
