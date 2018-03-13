@@ -21,7 +21,7 @@ public class DeskTimer
 				SetupDesks.OpenDesks();
 				//System.out.println("Debug a");				
 			}
-		}, 5*1000);
+		}, 1*1000);
 		
 		//Initialize schedule to close the desks
 		timer.schedule(new TimerTask() {
