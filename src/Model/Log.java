@@ -12,6 +12,8 @@ public class Log
 	private int number;
 	private String nameFile = "Log.txt";
 	private File logFile = new File(nameFile);
+	private StringBuffer StringLog = new StringBuffer();
+	
 	private Log()
 	{
 		this.number = 0;
@@ -40,17 +42,21 @@ public class Log
 		return instance;
 	}
 	
-	public void addEvent(String Event)
+	public synchronized void addEvent(String Event)
 	{
+		String timelog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 		int Lognumber = getNext();
+		StringLog.append(Lognumber+" "+timelog+" "+Event);
+		StringLog.append(System.getProperty("line.separator"));
+	}
+	
+	public synchronized void writeLog()
+	{
 		BufferedWriter WritingFile = null;
-		System.out.println(Lognumber+" "+Event);
 		try
 		{
-			String timelog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-			System.out.println(logFile.getCanonicalPath());
 			WritingFile = new BufferedWriter(new FileWriter(logFile));
-			WritingFile.write(Lognumber+" "+timelog+" "+Event);
+			WritingFile.write(StringLog.toString());
 		}
 		catch(Exception e)
 		{
