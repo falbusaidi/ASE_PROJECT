@@ -99,6 +99,9 @@ public class FlightList {
 	}
 	// TODO method to assign passenger
 	// add booking to flight and increment the passenger number, total weight and total volume
-	
-	
+	public void addpassenger(Booking passengerbooking)
+	{
+		Flight passengertoflight = passengerbooking.GetFlight();
+		passengertoflight.addPassengerToFlight(passengerbooking);
+	}
 }

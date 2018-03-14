@@ -15,7 +15,7 @@ public class Flight implements Subject {
 	private double MaxVolume;
 	private String FlightStatus; // Boarding or departed
 	private ArrayList<Observer> observers;
-	
+	private ArrayList<Booking> bookingslists;
 	
 	private int CheckInPassengers;
 	private double TotalWeight;
@@ -35,6 +35,7 @@ public class Flight implements Subject {
 		TotalVolume=0.0;
 		TotalExcessFees=0.00; 
 		observers = new ArrayList<Observer>();
+		bookingslists = new ArrayList<Booking>();
 		
 	}
 	
@@ -67,6 +68,7 @@ public class Flight implements Subject {
 		TotalVolume+=booking.GetVolume();
 		TotalWeight+=booking.GetWeight(); 
 		TotalExcessFees+=booking.getExcessFees();
+		bookingslists.add(booking);
 		this.notifyObservers();
 		
 	}
