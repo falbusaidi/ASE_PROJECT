@@ -43,6 +43,7 @@ public class CheckInQueue implements Subject{
 		CheckInQueue.add(booking);
 		notifyObservers();
 		notifyAll();
+		Log.getInstance().addEvent("Passenger Add to Queue: "+booking.GetBookingRef()+", "+booking.GetPassenger().GetLastName()+"\n");
 
 		//System.out.println("added booking"+booking.GetBookingRef()+","+booking.GetPassenger().GetLastName());
 
@@ -71,6 +72,7 @@ public class CheckInQueue implements Subject{
 		}
 		Booking booking = CheckInQueue.remove();
 		this.notifyObservers();
+		Log.getInstance().addEvent("Passenger removed to Queue: "+booking.GetBookingRef()+", "+booking.GetPassenger().GetLastName()+"\n");
 		return booking; 
 
 	}

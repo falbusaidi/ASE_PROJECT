@@ -29,6 +29,7 @@ public class DeskTimer
 			public void run()
 			{
 				SetupDesks.closeAllDesks();
+				Log.getInstance().writeLog();
 				//System.out.println("Debug b");
 			}
 		}, closeDeskTime);
