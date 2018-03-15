@@ -21,6 +21,7 @@ public class DeskManager implements Subject{
 	private ArrayList<Observer> observers; 
 	private int delay = 5000;
 	private boolean closeDesks; 
+	private FlightList flightlist; 
 	
 
 	/**
@@ -29,7 +30,7 @@ public class DeskManager implements Subject{
 	 * @param NumberofDesks : number of available desks
 	 * @param DesksToOpen: number of open desks
 	 */
-	public DeskManager(CheckInQueue queue, int NumberofDesks, int DesksToOpen )
+	public DeskManager(CheckInQueue queue, FlightList flightlist,int NumberofDesks, int DesksToOpen )
 	{
 		this.queue = queue; 
 		desks = new ArrayList<Desk>(); 
@@ -37,6 +38,7 @@ public class DeskManager implements Subject{
 		this.openDesks = DesksToOpen;
 		observers = new ArrayList<Observer>();
 		closeDesks= false; 
+		this.flightlist= flightlist; 
 		
 		initializeDesks(); 
 	}
@@ -56,7 +58,7 @@ public class DeskManager implements Subject{
 	{
 		for ( int i=0; i<totalDesks; i++)
 		{
-			desks.add(new Desk(i+1, queue,delay));
+			desks.add(new Desk(i+1,queue,flightlist,delay));
 		}
 	}
 	

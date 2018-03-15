@@ -121,10 +121,12 @@ public class Flight implements Subject {
 	{
 		String result="";
 		result+="Flight :"+this.Code+"\n";
+		result+=String.format("Passenger Checked-in: %d out of %d ", CheckInPassengers,MaxCapacity)+"\n";
 		result+=String.format("Hold: %.2f ", getHold())+"%\n";
 		result+=String.format("Total Weight(Kg): %.2f", TotalWeight)+"\n";
 		result+=String.format("Total Volume(C.CM): %.2f", TotalVolume)+"\n";
 		result+=String.format("Excess Fees Collected: £ %.2f", TotalExcessFees)+"\n";
+		Log.getInstance().addEvent(result);
 		return result; 
 	}
 

@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import Interface.Observer;
 import Interface.Subject;
@@ -16,15 +17,17 @@ public class Desk implements Runnable , Subject{
 	private ArrayList<Observer> observers; 
 	private Booking booking; 
 	private String processMessage; 
+	private FlightList flightlist; 
 	
 	
 	
-	public Desk(int deskID, CheckInQueue queue, int delay)
+	public Desk(int deskID, CheckInQueue queue, FlightList flightlist, int delay)
 	{
 		this.deskID = deskID;
 		this.queue = queue; 
 		this.delay=delay;
 		observers = new ArrayList<Observer>();
+		this.flightlist= flightlist;
 		processMessage="";
 		processMessage+="Desk: "+this.deskID+" is closed"+"\n";
 		notifyObservers();
@@ -41,6 +44,7 @@ public class Desk implements Runnable , Subject{
 			processMessage+="Desk: "+this.deskID+" is OPEN"+"\n";
 			notifyObservers();
 			
+			
 			//check if no more Passenger to add to the queue and the queue is empty then stop and close the counter
 			if (queue.isDone() && queue.isEmpty()) {
 				running = false; 
@@ -48,6 +52,7 @@ public class Desk implements Runnable , Subject{
 				processMessage+="Desk: "+this.deskID+" is closed"+"\n";
 				processMessage+="All Passengers boarded \n";
 				notifyObservers();
+				Log.getInstance().writeLog();
 			}	
 			
 			booking = queue.DeQueue();
@@ -59,15 +64,18 @@ public class Desk implements Runnable , Subject{
 				// add the Passenger to flight
 							
 				processMessage+=("Processing Passenger: "+booking.GetBookingRef()+" , "+booking.GetPassenger().GetLastName()+"\n");
-				this.notifyObservers();
+				notifyObservers();
 				
 				processMessage+=("Baggage weight(Kg) : "+String.format("%.2f", booking.GetWeight())+"\n");
 				processMessage+=("Baggage Dimensions(H*W*D): "+booking.getHeight()+"x"+booking.getWidth()+"x"+booking.getDepth()+"\n");
 				notifyObservers();
 				processMessage+="Excess Fees: £"+String.format("%.2f", excess)+"\n"; 
-				this.notifyObservers();
-				// ToDO: use Flight List to add to flight
-				booking.GetFlight().addPassengerToFlight(booking);
+				notifyObservers();
+				// use FlightList to add passenger  to flight
+				
+				flightlist.addpassenger(booking);
+				
+				
 				try {
 					
 					Thread.sleep(delay);
@@ -82,7 +90,8 @@ public class Desk implements Runnable , Subject{
 		}
 		processMessage="";
 		processMessage+="Desk: "+this.deskID+" is closed"+"\n";
-		this.notifyObservers();
+		notifyObservers();
+		
 		
 	}
 	
@@ -146,6 +155,7 @@ public class Desk implements Runnable , Subject{
 	 */
 	public String getPassengerDetail() {
 		
+		Log.getInstance().addEvent(processMessage);
 		return processMessage; 
 	
 	}

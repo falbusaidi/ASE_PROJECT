@@ -131,13 +131,8 @@ public class BookingList {
 				checInstatus = Boolean.valueOf(bookingDetails[4]); 
 				key = book_ref+lastname;
 				booking = new Booking(book_ref,lastname,firstname,flight,checInstatus);
-				bookingslist.put(key,booking ); 
+				bookingslist.put(key,booking );		
 				
-				// if the passenger already checked in than add to checkedinList
-				if(checInstatus)
-				{
-					CheckedInList.getInstance().add(booking);
-				}
 			}	
 		}catch(InvalidBookingRefException e) {
 			System.out.print("Can't create Booking, Invalid reference number :"+book_ref);
