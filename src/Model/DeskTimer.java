@@ -6,11 +6,16 @@ import java.util.TimerTask;
 public class DeskTimer
 {	
 	private DeskManager SetupDesks;
+	private PassengerThread passengerthread; 
+	private CheckInQueue queue; 
+	
 	Timer timer= new Timer();
-	public DeskTimer(DeskManager getDeskManager, long closeDeskTime)
+	public DeskTimer(DeskManager getDeskManager, PassengerThread passengerthread, CheckInQueue queue,  long closeDeskTime)
 	{
 		//Get settings for desk manager
 		this.SetupDesks=getDeskManager;
+		this.passengerthread= passengerthread;
+		this.queue = queue; 
 		
 		//System.out.println("Debug 1");
 		//Initialize schedule to setup desks
@@ -29,6 +34,8 @@ public class DeskTimer
 			public void run()
 			{
 				SetupDesks.closeAllDesks();
+				queue.setCheckinClosed(true);
+				passengerthread.stop();
 				Log.getInstance().writeLog();
 				//System.out.println("Debug b");
 			}

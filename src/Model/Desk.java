@@ -63,7 +63,7 @@ public class Desk implements Runnable , Subject{
 				double excess = booking.CheckIn();
 				// add the Passenger to flight
 							
-				processMessage+=("Processing Passenger: "+booking.GetBookingRef()+" , "+booking.GetPassenger().GetLastName()+"\n");
+				processMessage+=("Processing Passenger: "+booking.GetBookingRef()+" , "+booking.GetPassenger().GetLastName()+","+booking.GetPassenger().GetFirstName()+"\n");
 				notifyObservers();
 				
 				processMessage+=("Baggage weight(Kg) : "+String.format("%.2f", booking.GetWeight())+"\n");
@@ -71,6 +71,7 @@ public class Desk implements Runnable , Subject{
 				notifyObservers();
 				processMessage+="Excess Fees: £"+String.format("%.2f", excess)+"\n"; 
 				notifyObservers();
+				Log.getInstance().addEvent(processMessage);
 				// use FlightList to add passenger  to flight
 				
 				flightlist.addpassenger(booking);
@@ -155,7 +156,7 @@ public class Desk implements Runnable , Subject{
 	 */
 	public String getPassengerDetail() {
 		
-		Log.getInstance().addEvent(processMessage);
+		
 		return processMessage; 
 	
 	}
