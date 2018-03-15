@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -28,6 +29,7 @@ public void Setup()
 	passengerDetails.setLineWrap(true);
 	passengerDetails.setWrapStyleWord(true);
 	passengerDetails.setEditable(false);
+	passengerDetails.setFont(new Font("Courier New", Font.PLAIN, 14));
 	passengerDetails.setSize(300, 100);
 	this.add(passengerDetails);
 	

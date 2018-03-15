@@ -26,16 +26,12 @@ public class CheckInQueue implements Subject{
 	
 	private boolean checkinClosed; 
 	
-
-
-
-
-
 	private boolean  done; // to indicate that no more passengers are going to be added to the queue
 
 
 
 	public CheckInQueue() {
+		
 		observers = new ArrayList<Observer>();
 		 CheckInQueue = new LinkedList<Booking>();
 		 done= false;
@@ -46,14 +42,11 @@ public class CheckInQueue implements Subject{
 
 	public synchronized void EnQueue(Booking booking) {	
 
-		
-
 		CheckInQueue.add(booking);
 		notifyObservers();
 		notifyAll();
-		Log.getInstance().addEvent("Passenger Add to Queue: "+booking.GetBookingRef()+", "+booking.GetPassenger().GetLastName()+"\n");
-
-		//System.out.println("added booking"+booking.GetBookingRef()+","+booking.GetPassenger().GetLastName());
+		Log.getInstance().addEvent("Passenger added to Queue: "+String.format("%-7s,%s,%s,%3.2fkg, %3.0fcm x %3.0fcm x %3.0fcm",booking.GetBookingRef(),booking.GetPassenger().GetLastName(),booking.GetPassenger().GetFirstName(), booking.GetWeight(),booking.getHeight(),booking.getWidth(), booking.getDepth())+"\n");
+		
 
 	}
 
@@ -80,7 +73,7 @@ public class CheckInQueue implements Subject{
 		}
 		Booking booking = CheckInQueue.remove();
 		this.notifyObservers();
-		Log.getInstance().addEvent("Passenger removed to Queue: "+booking.GetBookingRef()+", "+booking.GetPassenger().GetLastName()+"\n");
+		Log.getInstance().addEvent("Passenger removed from Queue: "+String.format("%-7s,%s,%s,%3.2fkg, %3.0fcm x %3.0fcm x %3.0fcm",booking.GetBookingRef(),booking.GetPassenger().GetLastName(),booking.GetPassenger().GetFirstName(), booking.GetWeight(),booking.getHeight(),booking.getWidth(), booking.getDepth())+"\n");
 		return booking; 
 
 	}
@@ -189,9 +182,12 @@ public class CheckInQueue implements Subject{
 		for(Booking object : CheckInQueue ) {
 			
 			if (this.checkinClosed) {
-				processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+", Not allowed to Board \n";
+				//processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+", Not allowed to Board \n";
+				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|Not allowed to Board|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
+				
 			}else {
-				 processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+"\n";
+				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
+				
 			}
 		   
 		    
@@ -199,10 +195,6 @@ public class CheckInQueue implements Subject{
 		}
 		return processMessage;
 	}
-
-	
-
-	
 
 	public Queue<Booking> getQueue(){
 

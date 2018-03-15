@@ -69,7 +69,11 @@ public class Flight implements Subject {
 		TotalWeight+=booking.GetWeight(); 
 		TotalExcessFees+=booking.getExcessFees();
 		bookingslists.add(booking);
-		this.notifyObservers();
+		Log.getInstance().addEvent("Passenger: "+String.format("%-7s,%s,%s,%3.2fkg, %3.0fcm x %3.0fcm x %3.0fcm",
+				booking.GetBookingRef(),booking.GetPassenger().GetLastName(),booking.GetPassenger().GetFirstName(), booking.GetWeight(),booking.getHeight(),booking.getWidth(), booking.getDepth())+" ,assigned to flight:"+Code+"\n");
+		
+		
+		notifyObservers();
 		
 	}
 	public int getCheckInPassengers() {
@@ -126,7 +130,6 @@ public class Flight implements Subject {
 		result+=String.format("Total Weight(Kg): %.2f", TotalWeight)+"\n";
 		result+=String.format("Total Volume(C.CM): %.2f", TotalVolume)+"\n";
 		result+=String.format("Excess Fees Collected: £ %.2f", TotalExcessFees)+"\n";
-		Log.getInstance().addEvent(result);
 		return result; 
 	}
 

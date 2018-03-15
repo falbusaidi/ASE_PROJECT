@@ -1,6 +1,6 @@
 package View;
 import java.awt.FlowLayout;
-
+import java.awt.Font;
 import java.util.Queue;
 
 
@@ -53,6 +53,7 @@ public class CheckInQueueDisplay extends JPanel implements Observer{
 		QueueDetail.setLineWrap(true);
 
 		QueueDetail.setWrapStyleWord(true);
+		QueueDetail.setFont(new Font("Courier New", Font.PLAIN, 14));
 
 		QueueDetail.setEditable(false);
 

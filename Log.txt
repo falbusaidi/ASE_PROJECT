@@ -1,599 +1,298 @@
-1 20180315_125426 Desk: 1 is closed
+1 20180315_230028 Passenger added to Queue: A11143 ,ALFREDO,LAMB,18.86kg,  74cm x  63cm x  77cm
 
-2 20180315_125426 Desk: 2 is closed
+2 20180315_230028 Passenger added to Queue: A11213 ,SAGE,GENTRY,31.41kg,  43cm x  76cm x 109cm
 
-3 20180315_125426 Desk: 3 is closed
+3 20180315_230029 Passenger removed from Queue: A11143 ,ALFREDO,LAMB,18.86kg,  74cm x  63cm x  77cm
 
-4 20180315_125426 Desk: 4 is closed
+4 20180315_230029 Desk: 1 is OPEN
+Processing Passenger: A11143 , ALFREDO,LAMB
+Baggage weight(Kg) : 18.86
+Baggage Dimensions(H*W*D): 74.0x63.0x77.0
+Excess Fees: £37.72
 
-5 20180315_125426 Flight :A1
-Passenger Checked-in: 0 out of 80 
-Hold: 0.00 %
-Total Weight(Kg): 0.00
-Total Volume(C.CM): 0.00
-Excess Fees Collected: £ 0.00
+5 20180315_230029 Passenger: A11143 ,ALFREDO,LAMB,18.86kg,  74cm x  63cm x  77cm ,assigned to flight:A3
 
-6 20180315_125426 Flight :A2
-Passenger Checked-in: 0 out of 80 
-Hold: 0.00 %
-Total Weight(Kg): 0.00
-Total Volume(C.CM): 0.00
-Excess Fees Collected: £ 0.00
+6 20180315_230029 Passenger removed from Queue: A11213 ,SAGE,GENTRY,31.41kg,  43cm x  76cm x 109cm
 
-7 20180315_125426 Flight :A3
-Passenger Checked-in: 0 out of 80 
-Hold: 0.00 %
-Total Weight(Kg): 0.00
-Total Volume(C.CM): 0.00
-Excess Fees Collected: £ 0.00
+7 20180315_230029 Desk: 2 is OPEN
+Processing Passenger: A11213 , SAGE,GENTRY
+Baggage weight(Kg) : 31.41
+Baggage Dimensions(H*W*D): 43.0x76.0x109.0
+Excess Fees: £38.81
 
-8 20180315_125426 Passenger Add to Queue: A11203, HECTOR
+8 20180315_230029 Passenger: A11213 ,SAGE,GENTRY,31.41kg,  43cm x  76cm x 109cm ,assigned to flight:A1
 
-9 20180315_125426 Passenger Add to Queue: A11112, CRUZ
+9 20180315_230029 Passenger added to Queue: A11138 ,SALMA,BENITEZ,20.94kg,  53cm x 101cm x  85cm
 
-10 20180315_125427 Desk: 1 is OPEN
+10 20180315_230029 Passenger removed from Queue: A11138 ,SALMA,BENITEZ,20.94kg,  53cm x 101cm x  85cm
 
-11 20180315_125427 Desk: 3 is OPEN
-
-12 20180315_125427 Desk: 2 is OPEN
-
-13 20180315_125427 Passenger removed to Queue: A11203, HECTOR
-
-14 20180315_125427 Desk: 1 is OPEN
-Processing Passenger: A11203 , HECTOR
-
-15 20180315_125427 Passenger removed to Queue: A11112, CRUZ
-
-16 20180315_125427 Desk: 3 is OPEN
-Processing Passenger: A11112 , CRUZ
-
-17 20180315_125427 Desk: 1 is OPEN
-Processing Passenger: A11203 , HECTOR
-Baggage weight(Kg) : 39.66
-Baggage Dimensions(H*W*D): 67.0x64.0x51.0
-
-18 20180315_125427 Desk: 3 is OPEN
-Processing Passenger: A11112 , CRUZ
-Baggage weight(Kg) : 30.74
-Baggage Dimensions(H*W*D): 66.0x74.0x40.0
-
-19 20180315_125427 Desk: 1 is OPEN
-Processing Passenger: A11203 , HECTOR
-Baggage weight(Kg) : 39.66
-Baggage Dimensions(H*W*D): 67.0x64.0x51.0
-Excess Fees: £55.32
-
-20 20180315_125427 Desk: 3 is OPEN
-Processing Passenger: A11112 , CRUZ
-Baggage weight(Kg) : 30.74
-Baggage Dimensions(H*W*D): 66.0x74.0x40.0
-Excess Fees: £15.48
-
-21 20180315_125427 Flight :A2
-Passenger Checked-in: 1 out of 80 
-Hold: 1.25 %
-Total Weight(Kg): 30.74
-Total Volume(C.CM): 195360.00
-Excess Fees Collected: £ 15.48
-
-22 20180315_125427 Flight :A1
-Passenger Checked-in: 1 out of 80 
-Hold: 1.25 %
-Total Weight(Kg): 39.66
-Total Volume(C.CM): 218688.00
-Excess Fees Collected: £ 55.32
-
-23 20180315_125427 Passenger Add to Queue: A11193, ADDYSON
-
-24 20180315_125427 Passenger removed to Queue: A11193, ADDYSON
-
-25 20180315_125427 Desk: 2 is OPEN
-Processing Passenger: A11193 , ADDYSON
-
-26 20180315_125427 Desk: 2 is OPEN
-Processing Passenger: A11193 , ADDYSON
-Baggage weight(Kg) : 16.04
-Baggage Dimensions(H*W*D): 62.0x46.0x66.0
-
-27 20180315_125427 Desk: 2 is OPEN
-Processing Passenger: A11193 , ADDYSON
-Baggage weight(Kg) : 16.04
-Baggage Dimensions(H*W*D): 62.0x46.0x66.0
+11 20180315_230029 Desk: 3 is OPEN
+Processing Passenger: A11138 , SALMA,BENITEZ
+Baggage weight(Kg) : 20.94
+Baggage Dimensions(H*W*D): 53.0x101.0x85.0
 Excess Fees: £0.00
 
-28 20180315_125427 Flight :A2
-Passenger Checked-in: 2 out of 80 
-Hold: 2.50 %
-Total Weight(Kg): 46.78
-Total Volume(C.CM): 383592.00
-Excess Fees Collected: £ 15.48
+12 20180315_230029 Passenger: A11138 ,SALMA,BENITEZ,20.94kg,  53cm x 101cm x  85cm ,assigned to flight:A2
 
-29 20180315_125427 Passenger Add to Queue: A11182, LAUREN
+13 20180315_230029 Passenger added to Queue: A11171 ,KELVIN,BURKE,31.49kg,  55cm x  96cm x  86cm
 
-30 20180315_125428 Passenger Add to Queue: A11145, DAVIS
+14 20180315_230030 Passenger added to Queue: A11169 ,EDEN,MCKEE,35.40kg,  64cm x  62cm x 105cm
 
-31 20180315_125428 Passenger Add to Queue: A11143, ALFREDO
+15 20180315_230030 Passenger added to Queue: A11231 ,KAIDEN,FLYNN,21.71kg,  60cm x  83cm x  95cm
 
-32 20180315_125429 Passenger Add to Queue: A11218, ELAINE
+16 20180315_230031 Passenger added to Queue: A11192 ,ROBERTO,MCINTYRE,17.40kg,  45cm x 102cm x  94cm
 
-33 20180315_125429 Passenger Add to Queue: A11235, JABARI
+17 20180315_230031 Passenger added to Queue: A11198 ,LILIAN,YOUNG,26.43kg,  69cm x  50cm x 108cm
 
-34 20180315_125430 Passenger Add to Queue: A11205, OWEN
+18 20180315_230032 Passenger added to Queue: A11153 ,JULIEN,ATKINS,19.52kg,  67cm x 103cm x 103cm
 
-35 20180315_125430 Passenger Add to Queue: A11219, BRENDA
+19 20180315_230032 Passenger added to Queue: A11157 ,ANYA,BYRD,37.57kg,  76cm x 103cm x  40cm
 
-36 20180315_125431 Passenger Add to Queue: A11116, LANG
+20 20180315_230033 Passenger added to Queue: A11200 ,CECELIA,MOSES,34.15kg,  60cm x  66cm x  51cm
 
-37 20180315_125431 Passenger Add to Queue: A11136, ADRIENNE
+21 20180315_230033 Passenger added to Queue: A11114 ,HARTMAN,HADASSAH,26.02kg,  43cm x  76cm x  95cm
 
-38 20180315_125432 Desk: 3 is OPEN
+22 20180315_230034 Passenger removed from Queue: A11171 ,KELVIN,BURKE,31.49kg,  55cm x  96cm x  86cm
 
-39 20180315_125432 Desk: 1 is OPEN
+23 20180315_230034 Desk: 1 is OPEN
+Processing Passenger: A11171 , KELVIN,BURKE
+Baggage weight(Kg) : 31.49
+Baggage Dimensions(H*W*D): 55.0x96.0x86.0
+Excess Fees: £38.97
 
-40 20180315_125432 Passenger removed to Queue: A11182, LAUREN
+24 20180315_230034 Passenger: A11171 ,KELVIN,BURKE,31.49kg,  55cm x  96cm x  86cm ,assigned to flight:A1
 
-41 20180315_125432 Desk: 1 is OPEN
-Processing Passenger: A11182 , LAUREN
+25 20180315_230034 Passenger removed from Queue: A11169 ,EDEN,MCKEE,35.40kg,  64cm x  62cm x 105cm
 
-42 20180315_125432 Passenger removed to Queue: A11145, DAVIS
+26 20180315_230034 Desk: 2 is OPEN
+Processing Passenger: A11169 , EDEN,MCKEE
+Baggage weight(Kg) : 35.40
+Baggage Dimensions(H*W*D): 64.0x62.0x105.0
+Excess Fees: £46.80
 
-43 20180315_125432 Desk: 3 is OPEN
-Processing Passenger: A11145 , DAVIS
+27 20180315_230034 Passenger: A11169 ,EDEN,MCKEE,35.40kg,  64cm x  62cm x 105cm ,assigned to flight:A1
 
-44 20180315_125432 Desk: 1 is OPEN
-Processing Passenger: A11182 , LAUREN
-Baggage weight(Kg) : 27.78
-Baggage Dimensions(H*W*D): 71.0x49.0x84.0
+28 20180315_230034 Passenger removed from Queue: A11231 ,KAIDEN,FLYNN,21.71kg,  60cm x  83cm x  95cm
 
-45 20180315_125432 Desk: 1 is OPEN
-Processing Passenger: A11182 , LAUREN
-Baggage weight(Kg) : 27.78
-Baggage Dimensions(H*W*D): 71.0x49.0x84.0
-Excess Fees: £9.56
+29 20180315_230034 Desk: 3 is OPEN
+Processing Passenger: A11231 , KAIDEN,FLYNN
+Baggage weight(Kg) : 21.71
+Baggage Dimensions(H*W*D): 60.0x83.0x95.0
+Excess Fees: £43.42
 
-46 20180315_125432 Flight :A2
-Passenger Checked-in: 3 out of 80 
-Hold: 3.75 %
-Total Weight(Kg): 74.56
-Total Volume(C.CM): 675828.00
-Excess Fees Collected: £ 25.04
+30 20180315_230034 Passenger: A11231 ,KAIDEN,FLYNN,21.71kg,  60cm x  83cm x  95cm ,assigned to flight:A3
 
-47 20180315_125432 Desk: 3 is OPEN
-Processing Passenger: A11145 , DAVIS
-Baggage weight(Kg) : 30.79
-Baggage Dimensions(H*W*D): 79.0x99.0x71.0
+31 20180315_230034 Passenger added to Queue: A11150 ,ROSE,CARNEY,22.59kg,  41cm x  50cm x  68cm
 
-48 20180315_125432 Desk: 3 is OPEN
-Processing Passenger: A11145 , DAVIS
-Baggage weight(Kg) : 30.79
-Baggage Dimensions(H*W*D): 79.0x99.0x71.0
-Excess Fees: £61.59
+32 20180315_230034 Passenger added to Queue: A11179 ,ARNAV,GARRETT,37.81kg,  44cm x  56cm x  65cm
 
-49 20180315_125432 Flight :A3
-Passenger Checked-in: 1 out of 80 
-Hold: 1.25 %
-Total Weight(Kg): 30.79
-Total Volume(C.CM): 555291.00
-Excess Fees Collected: £ 61.59
+33 20180315_230035 Passenger added to Queue: A11116 ,LANG,ABDULLAH,28.58kg,  75cm x 104cm x  82cm
 
-50 20180315_125432 Desk: 2 is OPEN
+34 20180315_230035 Passenger added to Queue: A11145 ,DAVIS,CONLEY,26.01kg,  46cm x  52cm x  87cm
 
-51 20180315_125432 Passenger removed to Queue: A11143, ALFREDO
+35 20180315_230036 Passenger added to Queue: A11216 ,ENZO,BARRERA,30.18kg,  75cm x  52cm x  50cm
 
-52 20180315_125432 Desk: 2 is OPEN
-Processing Passenger: A11143 , ALFREDO
+36 20180315_230037 Passenger added to Queue: A11170 ,ROSELYN,STEWART,25.25kg,  47cm x  58cm x 101cm
 
-53 20180315_125432 Desk: 2 is OPEN
-Processing Passenger: A11143 , ALFREDO
-Baggage weight(Kg) : 17.56
-Baggage Dimensions(H*W*D): 62.0x64.0x46.0
+37 20180315_230037 Passenger added to Queue: A11113 ,RANDOLPH,EDDIE,15.45kg,  53cm x  48cm x  53cm
 
-54 20180315_125432 Desk: 2 is OPEN
-Processing Passenger: A11143 , ALFREDO
-Baggage weight(Kg) : 17.56
-Baggage Dimensions(H*W*D): 62.0x64.0x46.0
-Excess Fees: £35.13
+38 20180315_230038 Passenger added to Queue: A11222 ,REECE,HARRIS,32.57kg,  42cm x 107cm x  63cm
 
-55 20180315_125432 Flight :A3
-Passenger Checked-in: 2 out of 80 
-Hold: 2.50 %
-Total Weight(Kg): 48.36
-Total Volume(C.CM): 737819.00
-Excess Fees Collected: £ 96.72
+39 20180315_230038 Passenger added to Queue: A11182 ,LAUREN,SCHULTZ,23.25kg,  61cm x 105cm x  69cm
 
-56 20180315_125432 Passenger Add to Queue: A11172, RHYS
+40 20180315_230039 Passenger added to Queue: A11136 ,ADRIENNE,MCBRIDE,38.87kg,  61cm x  74cm x  82cm
 
-57 20180315_125432 Passenger Add to Queue: A11168, SLOANE
+41 20180315_230039 Passenger removed from Queue: A11192 ,ROBERTO,MCINTYRE,17.40kg,  45cm x 102cm x  94cm
 
-58 20180315_125433 Passenger Add to Queue: A11200, CECELIA
-
-59 20180315_125433 Passenger Add to Queue: A11183, KARSYN
-
-60 20180315_125434 Passenger Add to Queue: A11115, HENDERSON
-
-61 20180315_125434 Passenger Add to Queue: A11150, ROSE
-
-62 20180315_125435 Passenger Add to Queue: A11190, AVA
-
-63 20180315_125435 Passenger Add to Queue: A11162, MATEO
-
-64 20180315_125436 Passenger Add to Queue: A11175, NATALIE
-
-65 20180315_125436 Passenger Add to Queue: A11152, ALANA
-
-66 20180315_125437 Desk: 1 is OPEN
-
-67 20180315_125437 Desk: 3 is OPEN
-
-68 20180315_125437 Passenger removed to Queue: A11218, ELAINE
-
-69 20180315_125437 Desk: 1 is OPEN
-Processing Passenger: A11218 , ELAINE
-
-70 20180315_125437 Desk: 1 is OPEN
-Processing Passenger: A11218 , ELAINE
-Baggage weight(Kg) : 30.95
-Baggage Dimensions(H*W*D): 66.0x81.0x83.0
-
-71 20180315_125437 Passenger removed to Queue: A11235, JABARI
-
-72 20180315_125437 Desk: 1 is OPEN
-Processing Passenger: A11218 , ELAINE
-Baggage weight(Kg) : 30.95
-Baggage Dimensions(H*W*D): 66.0x81.0x83.0
-Excess Fees: £37.90
-
-73 20180315_125437 Flight :A1
-Passenger Checked-in: 2 out of 80 
-Hold: 2.50 %
-Total Weight(Kg): 70.61
-Total Volume(C.CM): 662406.00
-Excess Fees Collected: £ 93.21
-
-74 20180315_125437 Desk: 3 is OPEN
-Processing Passenger: A11235 , JABARI
-
-75 20180315_125437 Desk: 3 is OPEN
-Processing Passenger: A11235 , JABARI
-Baggage weight(Kg) : 17.13
-Baggage Dimensions(H*W*D): 47.0x109.0x41.0
-
-76 20180315_125437 Desk: 3 is OPEN
-Processing Passenger: A11235 , JABARI
-Baggage weight(Kg) : 17.13
-Baggage Dimensions(H*W*D): 47.0x109.0x41.0
-Excess Fees: £34.27
-
-77 20180315_125437 Flight :A3
-Passenger Checked-in: 3 out of 80 
-Hold: 3.75 %
-Total Weight(Kg): 65.49
-Total Volume(C.CM): 947862.00
-Excess Fees Collected: £ 130.98
-
-78 20180315_125437 Desk: 2 is OPEN
-
-79 20180315_125437 Passenger removed to Queue: A11205, OWEN
-
-80 20180315_125437 Desk: 2 is OPEN
-Processing Passenger: A11205 , OWEN
-
-81 20180315_125437 Desk: 2 is OPEN
-Processing Passenger: A11205 , OWEN
-Baggage weight(Kg) : 39.15
-Baggage Dimensions(H*W*D): 72.0x106.0x47.0
-
-82 20180315_125437 Desk: 2 is OPEN
-Processing Passenger: A11205 , OWEN
-Baggage weight(Kg) : 39.15
-Baggage Dimensions(H*W*D): 72.0x106.0x47.0
-Excess Fees: £54.30
-
-83 20180315_125437 Flight :A1
-Passenger Checked-in: 3 out of 80 
-Hold: 3.75 %
-Total Weight(Kg): 109.76
-Total Volume(C.CM): 1021110.00
-Excess Fees Collected: £ 147.51
-
-84 20180315_125437 Passenger Add to Queue: A11207, IZABELLA
-
-85 20180315_125437 Passenger Add to Queue: A11216, ENZO
-
-86 20180315_125438 Passenger Add to Queue: A11213, SAGE
-
-87 20180315_125438 Passenger Add to Queue: A11223, DWAYNE
-
-88 20180315_125439 Passenger Add to Queue: A11151, ELIAN
-
-89 20180315_125439 Passenger Add to Queue: A11163, MAX
-
-90 20180315_125440 Passenger Add to Queue: A11158, BRAYLON
-
-91 20180315_125440 Passenger Add to Queue: A11160, TOMAS
-
-92 20180315_125441 Passenger Add to Queue: A11122, DUNN
-
-93 20180315_125441 Passenger Add to Queue: A11170, ROSELYN
-
-94 20180315_125442 Desk: 3 is OPEN
-
-95 20180315_125442 Desk: 1 is OPEN
-
-96 20180315_125442 Passenger removed to Queue: A11219, BRENDA
-
-97 20180315_125442 Desk: 1 is OPEN
-Processing Passenger: A11219 , BRENDA
-
-98 20180315_125442 Passenger removed to Queue: A11116, LANG
-
-99 20180315_125442 Desk: 1 is OPEN
-Processing Passenger: A11219 , BRENDA
-Baggage weight(Kg) : 16.10
-Baggage Dimensions(H*W*D): 58.0x95.0x51.0
-
-100 20180315_125442 Desk: 3 is OPEN
-Processing Passenger: A11116 , LANG
-
-101 20180315_125442 Desk: 1 is OPEN
-Processing Passenger: A11219 , BRENDA
-Baggage weight(Kg) : 16.10
-Baggage Dimensions(H*W*D): 58.0x95.0x51.0
-Excess Fees: £8.19
-
-102 20180315_125442 Desk: 3 is OPEN
-Processing Passenger: A11116 , LANG
-Baggage weight(Kg) : 20.03
-Baggage Dimensions(H*W*D): 76.0x46.0x82.0
-
-103 20180315_125442 Desk: 3 is OPEN
-Processing Passenger: A11116 , LANG
-Baggage weight(Kg) : 20.03
-Baggage Dimensions(H*W*D): 76.0x46.0x82.0
+42 20180315_230039 Desk: 1 is OPEN
+Processing Passenger: A11192 , ROBERTO,MCINTYRE
+Baggage weight(Kg) : 17.40
+Baggage Dimensions(H*W*D): 45.0x102.0x94.0
 Excess Fees: £0.00
 
-104 20180315_125442 Flight :A1
-Passenger Checked-in: 4 out of 80 
-Hold: 5.00 %
-Total Weight(Kg): 125.85
-Total Volume(C.CM): 1302120.00
-Excess Fees Collected: £ 155.70
+43 20180315_230039 Passenger: A11192 ,ROBERTO,MCINTYRE,17.40kg,  45cm x 102cm x  94cm ,assigned to flight:A2
 
-105 20180315_125442 Flight :A2
-Passenger Checked-in: 4 out of 80 
-Hold: 5.00 %
-Total Weight(Kg): 94.59
-Total Volume(C.CM): 962500.00
-Excess Fees Collected: £ 25.04
+44 20180315_230039 Passenger removed from Queue: A11198 ,LILIAN,YOUNG,26.43kg,  69cm x  50cm x 108cm
 
-106 20180315_125442 Desk: 2 is OPEN
+45 20180315_230039 Desk: 2 is OPEN
+Processing Passenger: A11198 , LILIAN,YOUNG
+Baggage weight(Kg) : 26.43
+Baggage Dimensions(H*W*D): 69.0x50.0x108.0
+Excess Fees: £6.86
 
-107 20180315_125442 Passenger removed to Queue: A11136, ADRIENNE
+46 20180315_230039 Passenger: A11198 ,LILIAN,YOUNG,26.43kg,  69cm x  50cm x 108cm ,assigned to flight:A2
 
-108 20180315_125442 Desk: 2 is OPEN
-Processing Passenger: A11136 , ADRIENNE
+47 20180315_230039 Passenger removed from Queue: A11153 ,JULIEN,ATKINS,19.52kg,  67cm x 103cm x 103cm
 
-109 20180315_125442 Desk: 2 is OPEN
-Processing Passenger: A11136 , ADRIENNE
-Baggage weight(Kg) : 36.33
-Baggage Dimensions(H*W*D): 75.0x73.0x109.0
+48 20180315_230039 Desk: 3 is OPEN
+Processing Passenger: A11153 , JULIEN,ATKINS
+Baggage weight(Kg) : 19.52
+Baggage Dimensions(H*W*D): 67.0x103.0x103.0
+Excess Fees: £39.03
 
-110 20180315_125442 Desk: 2 is OPEN
-Processing Passenger: A11136 , ADRIENNE
-Baggage weight(Kg) : 36.33
-Baggage Dimensions(H*W*D): 75.0x73.0x109.0
-Excess Fees: £26.65
+49 20180315_230039 Passenger: A11153 ,JULIEN,ATKINS,19.52kg,  67cm x 103cm x 103cm ,assigned to flight:A3
 
-111 20180315_125442 Flight :A2
-Passenger Checked-in: 5 out of 80 
-Hold: 6.25 %
-Total Weight(Kg): 130.92
-Total Volume(C.CM): 1559275.00
-Excess Fees Collected: £ 51.70
+50 20180315_230039 Passenger added to Queue: A11214 ,DARRYL,KENT,21.97kg,  59cm x  43cm x  72cm
 
-112 20180315_125442 Passenger Add to Queue: A11171, KELVIN
+51 20180315_230040 Passenger added to Queue: A11127 ,FINLEY,POPE,37.24kg,  45cm x  53cm x  47cm
 
-113 20180315_125442 Passenger Add to Queue: A11113, RANDOLPH
+52 20180315_230040 Passenger added to Queue: A11159 ,BRITTANY,PECK,30.23kg,  50cm x  65cm x 103cm
 
-114 20180315_125443 Passenger Add to Queue: A11126, SMITH
+53 20180315_230041 Passenger added to Queue: A11185 ,CHAD,GARCIA,39.82kg,  42cm x  40cm x  50cm
 
-115 20180315_125443 Passenger Add to Queue: A11147, CORDELL
+54 20180315_230041 Passenger added to Queue: A11224 ,NATHANIEL,SANDOVAL,39.81kg,  56cm x  67cm x  89cm
 
-116 20180315_125444 Passenger Add to Queue: A11140, YOSELIN
+55 20180315_230042 Passenger added to Queue: A11158 ,BRAYLON,BARRETT,17.09kg,  63cm x  69cm x  83cm
 
-117 20180315_125444 Passenger Add to Queue: A11194, ANGIE
+56 20180315_230042 Passenger added to Queue: A11229 ,LILIANA,HOOPER,32.19kg,  61cm x  97cm x  68cm
 
-118 20180315_125445 Passenger Add to Queue: A11164, HARLEY
+57 20180315_230043 Passenger added to Queue: A11161 ,DANA,COLLINS,28.76kg,  77cm x  65cm x  77cm
 
-119 20180315_125445 Passenger Add to Queue: A11167, KENDRICK
+58 20180315_230043 Passenger added to Queue: A11199 ,GIA,WELLS,36.65kg,  61cm x  47cm x  73cm
 
-120 20180315_125446 Passenger Add to Queue: A11191, HAYDEN
+59 20180315_230044 Passenger added to Queue: A11146 ,ANNALISE,PERRY,22.45kg,  68cm x  87cm x  42cm
 
-121 20180315_125446 Passenger Add to Queue: A11230, ANNE
+60 20180315_230044 Passenger removed from Queue: A11157 ,ANYA,BYRD,37.57kg,  76cm x 103cm x  40cm
 
-122 20180315_125447 Desk: 1 is OPEN
+61 20180315_230044 Desk: 1 is OPEN
+Processing Passenger: A11157 , ANYA,BYRD
+Baggage weight(Kg) : 37.57
+Baggage Dimensions(H*W*D): 76.0x103.0x40.0
+Excess Fees: £51.15
 
-123 20180315_125447 Desk: 3 is OPEN
+62 20180315_230044 Passenger: A11157 ,ANYA,BYRD,37.57kg,  76cm x 103cm x  40cm ,assigned to flight:A1
 
-124 20180315_125447 Passenger removed to Queue: A11172, RHYS
+63 20180315_230044 Passenger removed from Queue: A11200 ,CECELIA,MOSES,34.15kg,  60cm x  66cm x  51cm
 
-125 20180315_125447 Desk: 1 is OPEN
-Processing Passenger: A11172 , RHYS
+64 20180315_230044 Desk: 2 is OPEN
+Processing Passenger: A11200 , CECELIA,MOSES
+Baggage weight(Kg) : 34.15
+Baggage Dimensions(H*W*D): 60.0x66.0x51.0
+Excess Fees: £44.29
 
-126 20180315_125447 Desk: 1 is OPEN
-Processing Passenger: A11172 , RHYS
-Baggage weight(Kg) : 24.16
-Baggage Dimensions(H*W*D): 48.0x76.0x67.0
+65 20180315_230044 Passenger: A11200 ,CECELIA,MOSES,34.15kg,  60cm x  66cm x  51cm ,assigned to flight:A1
 
-127 20180315_125447 Desk: 1 is OPEN
-Processing Passenger: A11172 , RHYS
-Baggage weight(Kg) : 24.16
-Baggage Dimensions(H*W*D): 48.0x76.0x67.0
-Excess Fees: £2.32
+66 20180315_230044 Passenger removed from Queue: A11114 ,HARTMAN,HADASSAH,26.02kg,  43cm x  76cm x  95cm
 
-128 20180315_125447 Passenger removed to Queue: A11168, SLOANE
+67 20180315_230044 Desk: 3 is OPEN
+Processing Passenger: A11114 , HARTMAN,HADASSAH
+Baggage weight(Kg) : 26.02
+Baggage Dimensions(H*W*D): 43.0x76.0x95.0
+Excess Fees: £28.03
 
-129 20180315_125447 Desk: 3 is OPEN
-Processing Passenger: A11168 , SLOANE
+68 20180315_230044 Passenger: A11114 ,HARTMAN,HADASSAH,26.02kg,  43cm x  76cm x  95cm ,assigned to flight:A1
 
-130 20180315_125447 Desk: 3 is OPEN
-Processing Passenger: A11168 , SLOANE
-Baggage weight(Kg) : 26.78
-Baggage Dimensions(H*W*D): 46.0x82.0x77.0
+69 20180315_230044 Passenger added to Queue: A11137 ,JAKOBE,WALTON,33.78kg,  63cm x 108cm x  75cm
 
-131 20180315_125447 Desk: 3 is OPEN
-Processing Passenger: A11168 , SLOANE
-Baggage weight(Kg) : 26.78
-Baggage Dimensions(H*W*D): 46.0x82.0x77.0
-Excess Fees: £29.56
+70 20180315_230045 Passenger added to Queue: A11196 ,LUCILLE,KELLER,32.09kg,  65cm x  64cm x 100cm
 
-132 20180315_125447 Flight :A1
-Passenger Checked-in: 5 out of 80 
-Hold: 6.25 %
-Total Weight(Kg): 152.63
-Total Volume(C.CM): 1592564.00
-Excess Fees Collected: £ 185.27
+71 20180315_230045 Passenger added to Queue: A11220 ,ABEL,FROST,39.68kg,  70cm x 100cm x  61cm
 
-133 20180315_125447 Flight :A2
-Passenger Checked-in: 6 out of 80 
-Hold: 7.50 %
-Total Weight(Kg): 155.08
-Total Volume(C.CM): 1803691.00
-Excess Fees Collected: £ 54.02
+72 20180315_230046 Passenger added to Queue: A11167 ,KENDRICK,WERNER,39.64kg,  69cm x  87cm x  55cm
 
-134 20180315_125447 Desk: 2 is OPEN
+73 20180315_230046 Passenger added to Queue: A11133 ,NICK,LOWERY,37.43kg,  53cm x 102cm x  52cm
 
-135 20180315_125447 Passenger removed to Queue: A11200, CECELIA
+74 20180315_230047 Passenger added to Queue: A11135 ,KAMARI,NOBLE,19.46kg,  65cm x  97cm x  63cm
 
-136 20180315_125447 Desk: 2 is OPEN
-Processing Passenger: A11200 , CECELIA
+75 20180315_230047 Passenger added to Queue: A11120 ,SHEPPARD,JONATHON,28.52kg,  50cm x  94cm x  82cm
 
-137 20180315_125447 Desk: 2 is OPEN
-Processing Passenger: A11200 , CECELIA
-Baggage weight(Kg) : 26.07
-Baggage Dimensions(H*W*D): 71.0x48.0x84.0
+76 20180315_230048 Passenger added to Queue: A11197 ,KIERA,SCHAEFER,16.49kg,  56cm x  79cm x  85cm
 
-138 20180315_125447 Desk: 2 is OPEN
-Processing Passenger: A11200 , CECELIA
-Baggage weight(Kg) : 26.07
-Baggage Dimensions(H*W*D): 71.0x48.0x84.0
-Excess Fees: £28.15
+77 20180315_230048 Passenger added to Queue: A11219 ,BRENDA,HATFIELD,33.21kg,  49cm x  86cm x  63cm
 
-139 20180315_125447 Flight :A1
-Passenger Checked-in: 6 out of 80 
-Hold: 7.50 %
-Total Weight(Kg): 178.71
-Total Volume(C.CM): 1878836.00
-Excess Fees Collected: £ 213.41
+78 20180315_230049 Passenger added to Queue: A11203 ,HECTOR,SINGH,15.19kg,  45cm x  63cm x  40cm
 
-140 20180315_125447 Passenger Add to Queue: A11198, LILIAN
+79 20180315_230049 Passenger removed from Queue: A11150 ,ROSE,CARNEY,22.59kg,  41cm x  50cm x  68cm
 
-141 20180315_125447 Passenger Add to Queue: A11178, MARIAH
+80 20180315_230049 Desk: 1 is OPEN
+Processing Passenger: A11150 , ROSE,CARNEY
+Baggage weight(Kg) : 22.59
+Baggage Dimensions(H*W*D): 41.0x50.0x68.0
+Excess Fees: £45.19
 
-142 20180315_125448 Passenger Add to Queue: A11176, CRISTAL
+81 20180315_230049 Passenger: A11150 ,ROSE,CARNEY,22.59kg,  41cm x  50cm x  68cm ,assigned to flight:A3
 
-143 20180315_125448 Passenger Add to Queue: A11217, JAXON
+82 20180315_230049 Passenger removed from Queue: A11179 ,ARNAV,GARRETT,37.81kg,  44cm x  56cm x  65cm
 
-144 20180315_125449 Passenger Add to Queue: A11206, SALVATORE
+83 20180315_230049 Desk: 2 is OPEN
+Processing Passenger: A11179 , ARNAV,GARRETT
+Baggage weight(Kg) : 37.81
+Baggage Dimensions(H*W*D): 44.0x56.0x65.0
+Excess Fees: £29.63
 
-145 20180315_125449 Passenger Add to Queue: A11153, JULIEN
+84 20180315_230049 Passenger: A11179 ,ARNAV,GARRETT,37.81kg,  44cm x  56cm x  65cm ,assigned to flight:A2
 
-146 20180315_125450 Passenger Add to Queue: A11228, DEXTER
+85 20180315_230049 Passenger removed from Queue: A11116 ,LANG,ABDULLAH,28.58kg,  75cm x 104cm x  82cm
 
-147 20180315_125450 Passenger Add to Queue: A11124, FULLER
+86 20180315_230049 Desk: 3 is OPEN
+Processing Passenger: A11116 , LANG,ABDULLAH
+Baggage weight(Kg) : 28.58
+Baggage Dimensions(H*W*D): 75.0x104.0x82.0
+Excess Fees: £11.16
 
-148 20180315_125451 Passenger Add to Queue: A11135, KAMARI
+87 20180315_230049 Passenger: A11116 ,LANG,ABDULLAH,28.58kg,  75cm x 104cm x  82cm ,assigned to flight:A2
 
-149 20180315_125451 Passenger Add to Queue: A11184, CAMRON
+88 20180315_230049 Passenger added to Queue: A11211 ,ALIVIA,ACOSTA,25.20kg,  73cm x  44cm x  88cm
 
-150 20180315_125452 Desk: 3 is OPEN
+89 20180315_230050 Passenger added to Queue: A11173 ,JETT,HARVEY,37.75kg,  46cm x  78cm x  63cm
 
-151 20180315_125452 Desk: 1 is OPEN
+90 20180315_230050 Passenger added to Queue: A11172 ,RHYS,WARNER,16.94kg,  76cm x  48cm x  66cm
 
-152 20180315_125452 Passenger removed to Queue: A11183, KARSYN
+91 20180315_230051 Passenger added to Queue: A11209 ,JASLENE,BURNS,16.02kg,  65cm x  42cm x 106cm
 
-153 20180315_125452 Desk: 3 is OPEN
-Processing Passenger: A11183 , KARSYN
+92 20180315_230051 Passenger added to Queue: A11176 ,CRISTAL,MORTON,18.54kg,  69cm x  41cm x  53cm
 
-154 20180315_125452 Passenger removed to Queue: A11115, HENDERSON
+93 20180315_230052 Passenger added to Queue: A11115 ,HENDERSON,JUSTINE,38.26kg,  41cm x  45cm x  52cm
 
-155 20180315_125452 Desk: 3 is OPEN
-Processing Passenger: A11183 , KARSYN
-Baggage weight(Kg) : 37.96
-Baggage Dimensions(H*W*D): 57.0x92.0x40.0
+94 20180315_230052 Passenger added to Queue: A11194 ,ANGIE,FRANCIS,24.05kg,  69cm x  56cm x  75cm
 
-156 20180315_125452 Desk: 1 is OPEN
-Processing Passenger: A11115 , HENDERSON
+95 20180315_230053 Passenger added to Queue: A11134 ,AARAV,WELCH,27.67kg,  60cm x  52cm x  49cm
 
-157 20180315_125452 Desk: 3 is OPEN
-Processing Passenger: A11183 , KARSYN
-Baggage weight(Kg) : 37.96
-Baggage Dimensions(H*W*D): 57.0x92.0x40.0
-Excess Fees: £29.91
+96 20180315_230053 Passenger added to Queue: A11160 ,TOMAS,LEACH,35.56kg,  41cm x 101cm x  63cm
 
-158 20180315_125452 Desk: 1 is OPEN
-Processing Passenger: A11115 , HENDERSON
-Baggage weight(Kg) : 29.16
-Baggage Dimensions(H*W*D): 54.0x49.0x105.0
+97 20180315_230054 Passenger added to Queue: A11148 ,MARINA,SANTANA,16.13kg,  48cm x 102cm x  83cm
 
-159 20180315_125452 Desk: 1 is OPEN
-Processing Passenger: A11115 , HENDERSON
-Baggage weight(Kg) : 29.16
-Baggage Dimensions(H*W*D): 54.0x49.0x105.0
-Excess Fees: £34.32
+98 20180315_230054 Passenger removed from Queue: A11145 ,DAVIS,CONLEY,26.01kg,  46cm x  52cm x  87cm
 
-160 20180315_125452 Flight :A2
-Passenger Checked-in: 7 out of 80 
-Hold: 8.75 %
-Total Weight(Kg): 193.04
-Total Volume(C.CM): 2013451.00
-Excess Fees Collected: £ 83.93
+99 20180315_230054 Desk: 1 is OPEN
+Processing Passenger: A11145 , DAVIS,CONLEY
+Baggage weight(Kg) : 26.01
+Baggage Dimensions(H*W*D): 46.0x52.0x87.0
+Excess Fees: £52.02
 
-161 20180315_125452 Flight :A1
-Passenger Checked-in: 7 out of 80 
-Hold: 8.75 %
-Total Weight(Kg): 207.86
-Total Volume(C.CM): 2156666.00
-Excess Fees Collected: £ 247.73
+100 20180315_230054 Passenger: A11145 ,DAVIS,CONLEY,26.01kg,  46cm x  52cm x  87cm ,assigned to flight:A3
 
-162 20180315_125452 Desk: 2 is OPEN
+101 20180315_230054 Passenger removed from Queue: A11216 ,ENZO,BARRERA,30.18kg,  75cm x  52cm x  50cm
 
-163 20180315_125452 Passenger removed to Queue: A11150, ROSE
+102 20180315_230054 Desk: 2 is OPEN
+Processing Passenger: A11216 , ENZO,BARRERA
+Baggage weight(Kg) : 30.18
+Baggage Dimensions(H*W*D): 75.0x52.0x50.0
+Excess Fees: £36.36
 
-164 20180315_125452 Desk: 2 is OPEN
-Processing Passenger: A11150 , ROSE
+103 20180315_230054 Passenger: A11216 ,ENZO,BARRERA,30.18kg,  75cm x  52cm x  50cm ,assigned to flight:A1
 
-165 20180315_125452 Desk: 2 is OPEN
-Processing Passenger: A11150 , ROSE
-Baggage weight(Kg) : 26.94
-Baggage Dimensions(H*W*D): 57.0x89.0x87.0
+104 20180315_230054 Passenger removed from Queue: A11170 ,ROSELYN,STEWART,25.25kg,  47cm x  58cm x 101cm
 
-166 20180315_125452 Desk: 2 is OPEN
-Processing Passenger: A11150 , ROSE
-Baggage weight(Kg) : 26.94
-Baggage Dimensions(H*W*D): 57.0x89.0x87.0
-Excess Fees: £53.88
+105 20180315_230054 Desk: 3 is OPEN
+Processing Passenger: A11170 , ROSELYN,STEWART
+Baggage weight(Kg) : 25.25
+Baggage Dimensions(H*W*D): 47.0x58.0x101.0
+Excess Fees: £26.51
 
-167 20180315_125452 Flight :A3
-Passenger Checked-in: 4 out of 80 
-Hold: 5.00 %
-Total Weight(Kg): 92.43
-Total Volume(C.CM): 1389213.00
-Excess Fees Collected: £ 184.87
+106 20180315_230054 Passenger: A11170 ,ROSELYN,STEWART,25.25kg,  47cm x  58cm x 101cm ,assigned to flight:A1
 
-168 20180315_125452 Passenger Add to Queue: A11127, FINLEY
+107 20180315_230054 Passenger added to Queue: A11130 ,LUCY,KEITH,16.58kg,  72cm x  74cm x  58cm
 
-169 20180315_125452 Passenger Add to Queue: A11180, TALIYAH
+108 20180315_230055 Passenger added to Queue: A11147 ,CORDELL,STRONG,32.82kg,  53cm x 104cm x  93cm
 
-170 20180315_125453 Passenger Add to Queue: A11229, LILIANA
+109 20180315_230055 Passenger added to Queue: A11210 ,ASHLEY,SHORT,22.31kg,  59cm x 102cm x  96cm
 
-171 20180315_125453 Passenger Add to Queue: A11224, NATHANIEL
+110 20180315_230056 Passenger added to Queue: A11190 ,AVA,DECKER,33.53kg,  45cm x  87cm x  87cm
 
-172 20180315_125454 Passenger Add to Queue: A11139, PRANAV
+111 20180315_230056 Passenger added to Queue: A11206 ,SALVATORE,CHEN,36.02kg,  43cm x 107cm x  88cm
 
-173 20180315_125454 Passenger Add to Queue: A11128, NORA
+112 20180315_230057 Passenger added to Queue: A11118 ,SHAFFER,JOANNA,27.85kg,  52cm x 100cm x  58cm
 
-174 20180315_125455 Passenger Add to Queue: A11142, DEMETRIUS
-
-175 20180315_125456 Passenger Add to Queue: A11232, ALICE
+113 20180315_230057 Passenger added to Queue: A11225 ,GIULIANA,HULL,21.68kg,  44cm x  73cm x  68cm
 
