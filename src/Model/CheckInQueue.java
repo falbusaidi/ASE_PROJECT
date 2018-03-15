@@ -180,7 +180,7 @@ public class CheckInQueue implements Subject{
 
 		for(Booking object : CheckInQueue ) {
 
-		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+"\n";
+			processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+", "+String.format("%.2f", object.GetWeight())+" kg     "+String.format("%.0f", object.getHeight())+"X"+String.format("%.0f", object.getWidth())+"X"+String.format("%.0f", object.getDepth())+"\n";
 		    
 
 		}
