@@ -22,7 +22,14 @@ public class CheckInQueue implements Subject{
 
 	private ArrayList<Observer> observers; 
 
-	Queue<Booking> CheckInQueue ; 
+	private Queue<Booking> CheckInQueue ; 
+	
+	private boolean checkinClosed; 
+	
+
+
+
+
 
 	private boolean  done; // to indicate that no more passengers are going to be added to the queue
 
@@ -32,6 +39,7 @@ public class CheckInQueue implements Subject{
 		observers = new ArrayList<Observer>();
 		 CheckInQueue = new LinkedList<Booking>();
 		 done= false;
+		 checkinClosed=false; 
 	}
 
 	// Call to add Passenger into the line
@@ -179,8 +187,13 @@ public class CheckInQueue implements Subject{
 		processMessage="Number of Passengers in the Queue: "+CheckInQueue.size()+"\n";
 
 		for(Booking object : CheckInQueue ) {
-
-		    processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+"\n";
+			
+			if (this.checkinClosed) {
+				processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+", Not allowed to Board \n";
+			}else {
+				 processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+"\n";
+			}
+		   
 		    
 
 		}
@@ -197,6 +210,13 @@ public class CheckInQueue implements Subject{
 
 	}
 
-	
+	/**
+	 * method to set the checkinClose variable to indicate that the check-in process is closed 
+	 * @param checkinClosed Boolean
+	 */
+	public void setCheckinClosed(boolean checkinClosed) {
+		this.checkinClosed = checkinClosed;
+		this.notifyObservers();
+	}
 
 }

@@ -37,13 +37,13 @@ public class CheckInKiosk {
 			
 			//start the passenger queue 
 			
-			long closeDeskTime = 120*1000;
+			long closeDeskTime = 30*1000;
 			
 			KioskGUI gui = new KioskGUI(passengerQueue,flightlist,deskmanager); 
 			AdminGUI adminGUI = new AdminGUI(deskmanager,passengerThread); 
 			Controller controller = new Controller(adminGUI,deskmanager,passengerThread);
 			new Thread(passengerThread).start();
-			DeskTimer deskstart= new DeskTimer(deskmanager, closeDeskTime);
+			DeskTimer deskstart= new DeskTimer(deskmanager,passengerThread, passengerQueue, closeDeskTime);
 	
 			
 		}
