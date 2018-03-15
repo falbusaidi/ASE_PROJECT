@@ -180,6 +180,7 @@ public class CheckInQueue implements Subject{
 		processMessage="Number of Passengers in the Queue: "+CheckInQueue.size()+"\n";
 
 		for(Booking object : CheckInQueue ) {
+
 			
 			if (this.checkinClosed) {
 				//processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+", Not allowed to Board \n";
@@ -188,9 +189,7 @@ public class CheckInQueue implements Subject{
 			}else {
 				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
 				
-			}
-		   
-		    
+			}    
 
 		}
 		return processMessage;
