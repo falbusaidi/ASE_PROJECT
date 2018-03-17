@@ -19,6 +19,8 @@ public class PassengerThread implements Runnable{
 	public PassengerThread(BookingList bookinglist,CheckInQueue queue ) {
 		this.bookinglist = bookinglist; 
 		this.queue = queue; 
+		Log.getInstance().addEvent("Passenger Thread: Thread started");
+		Log.getInstance().writeLog();
 	}
 	
 
@@ -37,12 +39,13 @@ public class PassengerThread implements Runnable{
 				// retrieve the random bookings object 
 				Booking booking = bookinglist.getBooking(); 
 				
-				// assign the weight, volume randomly
+				// assign the weight, width, height, and depth randomly to each passenger in the queue
 				booking.setWeight(15.00 + (25.00*Math.random()));
 				booking.setHeight(40.00 + Math.floor(40.00*Math.random()));
 				booking.setDepth(40.00 + Math.floor(70*Math.random()));
 				booking.setWidth(40.00 + Math.floor(70*Math.random()));
-				
+				Log.getInstance().addEvent("Passenger Thread: Random weight, height, width, and depth are generated for "+booking.GetBookingRef()+", "+booking.GetPassenger().GetLastName());
+				Log.getInstance().writeLog();
 				// add the Passenger booking info to the check-in queue
 				queue.EnQueue(booking);
 				
@@ -56,6 +59,8 @@ public class PassengerThread implements Runnable{
 			} catch (InterruptedException e) {
 
 				System.out.println("Thread interrupted.");
+				Log.getInstance().addEvent("Passenger Thread: Thread interrupted");
+				Log.getInstance().writeLog();
 			}
 		}
 		
@@ -68,6 +73,8 @@ public class PassengerThread implements Runnable{
 	public void stop()
 	{
 		running = false; 
+		Log.getInstance().addEvent("Passenger Thread: Thread stopped");
+		Log.getInstance().writeLog();
 	}
 	
 	/**

@@ -174,8 +174,9 @@ public class CheckInQueue implements Subject{
 
 	}
 
-	
-
+	/** 
+	 * Passing the processed Queue to CheckInQueueDisplay Class 
+	 */
 	public String getQueueDetail() {
 		processMessage="Number of Passengers in the Queue: "+CheckInQueue.size()+"\n";
 
