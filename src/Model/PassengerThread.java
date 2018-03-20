@@ -37,11 +37,12 @@ public class PassengerThread implements Runnable{
 				// retrieve the random bookings object 
 				Booking booking = bookinglist.getBooking(); 
 				
-				// assign the weight, volume randomly
-				booking.setWeight(15.00 + (25.00*Math.random()));
-				booking.setHeight(40.00 + Math.floor(40.00*Math.random()));
-				booking.setDepth(40.00 + Math.floor(70*Math.random()));
-				booking.setWidth(40.00 + Math.floor(70*Math.random()));
+				//We use British Airways Baggage Allowance
+				//http://www.edreams.com/blog/luggage-restrictions-by-airline/
+				booking.setWeight(10.00 + (13.00*Math.random())); // Max weight of 23kg (generated value range from 10kg to 23kg)
+				booking.setHeight(50.00 + Math.floor(30.00*Math.random())); // Max Height of 80 cm (generated value range from 50cm to 80cm)
+				booking.setDepth(20.00 + Math.floor(23*Math.random())); // Max Depth of 43 cm (generated value range from 20cm to 43cm)
+				booking.setWidth(40.00 + Math.floor(35*Math.random())); // Max Width of 75 cm (generated value range from 40cm to 73cm)
 				
 				// add the Passenger booking info to the check-in queue
 				queue.EnQueue(booking);
