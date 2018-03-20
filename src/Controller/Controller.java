@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 import Model.DeskManager;
 import Model.PassengerThread;
 import View.AdminGUI;
-import View.SetSimulationTime;
 
 public class Controller {
 

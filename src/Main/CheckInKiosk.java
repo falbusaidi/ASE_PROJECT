@@ -11,7 +11,6 @@ import Model.FlightList;
 import Model.PassengerThread;
 import View.AdminGUI;
 import View.KioskGUI;
-import View.SetSimulationTime;
 import Model.DeskTimer;
 
 /**
