@@ -4,6 +4,9 @@ package Interface;
 /**
  * The Subject part of the Observer pattern.
  * All classes implementing this interface MUST have these methods.
+ * ========================================================================
+ * Below Class has been taken from the course examples by Dr. Michael Lones
+ * ========================================================================
  */
 public interface Subject {
 	

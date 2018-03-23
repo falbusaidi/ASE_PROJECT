@@ -11,7 +11,6 @@ import Model.FlightList;
 import Model.PassengerThread;
 import View.AdminGUI;
 import View.KioskGUI;
-import View.SetSimulationTime;
 import Model.DeskTimer;
 
 /**
@@ -23,7 +22,7 @@ public class CheckInKiosk {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		try {
+		
 			// setup all the objects
 			FlightList flightlist = new FlightList();
 			BookingList bookinglist = new BookingList(flightlist);
@@ -35,23 +34,24 @@ public class CheckInKiosk {
 			flightlist.populateFlight("FlightList.csv");
 			bookinglist.populateBookingDetails("PassengerList.csv");
 			
-			//start the passenger queue 
 			
-			long closeDeskTime = 30*1000;
+			// define the timer to close the check-in desks
+			long closeDeskTime = 120*1000;
 			
+			// create and launch the main Simulation GUI class
 			KioskGUI gui = new KioskGUI(passengerQueue,flightlist,deskmanager); 
+			
+			// create the AdminGUI 
 			AdminGUI adminGUI = new AdminGUI(deskmanager,passengerThread); 
+			
+			// Create the Controller class
 			Controller controller = new Controller(adminGUI,deskmanager,passengerThread);
+			
+			//start the passenger queue 
 			new Thread(passengerThread).start();
+			// start the Timer class
 			DeskTimer deskstart= new DeskTimer(deskmanager,passengerThread, passengerQueue, closeDeskTime);
 	
-			
-		}
-		catch ( FileNotFoundException e)
-		{
-			System.out.println(e.getMessage());
-		}
-		
 	}
 
 }

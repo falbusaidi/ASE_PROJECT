@@ -47,7 +47,7 @@ public class PassengerThread implements Runnable{
 				// add the Passenger booking info to the check-in queue
 				queue.EnQueue(booking);
 				
-				// wait for 5 second before adding the next passenger
+				// threads wait based on time set before adding the next passenger
 				Thread.sleep(delay);
 				
 				if (bookinglist.GetNumberOfBookings()==0) {

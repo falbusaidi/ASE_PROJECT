@@ -52,10 +52,11 @@ public class FlightList {
 	
 	public void populateFlight(String FlightDetails)
 	{
+		Scanner input=null;
 		try
 		{
 			File f = new File(FlightDetails);
-			Scanner input=new Scanner(f);
+			input=new Scanner(f);
 			while(input.hasNextLine())
 			{
 				String line=input.nextLine();
@@ -64,13 +65,16 @@ public class FlightList {
 					readLine(line);
 				}
 			}
-			input.close();
+			
 		}
 		catch (FileNotFoundException e) 
 		{
 			System.out.printf("FILE NAME %s  NOT FOUND %n", FlightDetails);
 			System.err.println("ERROR " + e.getMessage());
 			System.exit(1);
+		}
+		finally {
+			input.close();
 		}
 		
 	}
