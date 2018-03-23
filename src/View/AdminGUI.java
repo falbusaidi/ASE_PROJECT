@@ -19,6 +19,13 @@ import Interface.Observer;
 import Model.DeskManager;
 import Model.PassengerThread;
 
+/**
+ * @author fahad
+ * The purpose of this class is to provide a GUI interface to allow the user to :
+ * 1. Alter the speed of the simulation 
+ * 2.Control the opening and closing of Desk during the simulation
+ *
+ */
 public class AdminGUI extends JFrame implements Observer{
 
 		private JTabbedPane tabpane;
@@ -39,19 +46,30 @@ public class AdminGUI extends JFrame implements Observer{
 		private JButton JB_OpenDesk; 
 		
 		
+		/**
+		 * Constructor 
+		 * @param deskModel : represent the model to access the desk
+		 * @param passengerModel  represent teh model to access the passengerThread class
+		 */
 		public AdminGUI(DeskManager deskModel, PassengerThread passengerModel) {
 			tabpane = new JTabbedPane();
 			this.passengerModel = passengerModel;
 			this.deskModel= deskModel; 
 			// create the first tab which contains the GUI to configure the simulation speed
 			setSimulationSpeedsetup();
+			//create the second tab which contain functionality to open and close the desks
 			manageDeskSetup();
+			// adding the tabpane to the Jframe
 			this.add(tabpane); 
 			this.setSize(500, 300);
 			this.setTitle("Admin GUI");
 		    this.setVisible(true);
 		}
 		
+		/**
+		 * method to setup the first tab which contains the functionalities to update the simulation speed for the desks
+		 * and the speed to update passenger into the queue
+		 */
 		private void setSimulationSpeedsetup() {
 			// TODO Auto-generated method stub
 			JPanel SpeedTabPanel = new JPanel();
@@ -88,6 +106,11 @@ public class AdminGUI extends JFrame implements Observer{
 			
 		}
 		
+		/**
+		 * This method setup the second tab of the GUI which provides functionalities to 
+		 * display the open/ and available desk 
+		 * ability to open and close a desk provided the ID of the desk
+		 */
 		public void manageDeskSetup() {
 			
 			JPanel mainPanel = new JPanel(new BorderLayout()); 
@@ -127,6 +150,12 @@ public class AdminGUI extends JFrame implements Observer{
 			
 			tabpane.add("Desks Configuration",mainPanel); 
 		}
+		
+		
+		/**
+		 * Method to return the enter desk ID in order to open or close it 
+		 * @return
+		 */
 		public int getDeskID()
 		{
 			int input = 0; 
@@ -141,8 +170,15 @@ public class AdminGUI extends JFrame implements Observer{
 			return input; 
 		}
 
+		/**
+		 * Method to set the listener to the GUI events to: 
+		 * 1.update the simulation speed
+		 * 2. open a desk
+		 * 3. close a desk
+		 * @param al represent the actionlistener class which will handle the event
+		 */
 		public void addSetListener(ActionListener al) {
-			
+			// Determine the action listener class and assign it to appropriate component
 			if (al instanceof SetListener) {
 				JBupdate.addActionListener(al);
 			}else if(al instanceof SetListenerDeskOpen){
@@ -154,6 +190,10 @@ public class AdminGUI extends JFrame implements Observer{
 			
 		}
 
+		/**
+		 * Method to get the delay entered by the user for the desk
+		 * @return an integer value representing the delay in millisecond
+		 */
 		public int getDeskDelay()
 		{
 			int input = 0; 
@@ -168,7 +208,10 @@ public class AdminGUI extends JFrame implements Observer{
 			return input; 
 			
 		}
-
+		/**
+		 * Method to get the delay entered by the user for adding passenger to the queue
+		 * @return an integer value representing the delay in millisecond
+		 */
 		public int getPassengerThreadDelay()
 		{
 			int input = 0; 
@@ -184,6 +227,10 @@ public class AdminGUI extends JFrame implements Observer{
 			
 		}
 		
+		/* (non-Javadoc)
+		 * @see Interface.Observer#update()
+		 * used to update the observed value of open desks
+		 */
 		public void update()
 		{
 			TF_OpenDesks.setText(Integer.toString(deskModel.getDesksToOpen()));

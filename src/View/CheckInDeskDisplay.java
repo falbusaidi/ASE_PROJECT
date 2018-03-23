@@ -10,19 +10,36 @@ import Interface.Observer;
 import Model.Desk;
 
 
+/**
+ * @author fahad
+ * This class is used to display a single desk infromation in the GUI 
+ * using a textArea
+ *
+ */
 public class CheckInDeskDisplay extends JPanel implements Observer{
 	
-private Desk model; 
-private JTextArea passengerDetails; 
+private Desk model;  // the model as the desk
+private JTextArea passengerDetails;  // the Text Area
+
+/**
+ * Constructor : assign the model and register it self as an observer to the desk class
+ * @param model representing the desk
+ */
 public CheckInDeskDisplay(Desk model)
 {
 	this.setLayout(new FlowLayout());
 	this.model=model;
 	// register the display class as an observer of the model
 	model.registerObserver(this);
+	// setup the text area in the GUI
 	Setup(); 
+	// call update to populate the GUI
 	update(); 
 }
+
+/**
+ * Setup the GUI component as a text area to display the desk information
+ */
 public void Setup()
 {
 	passengerDetails = new JTextArea();
@@ -35,6 +52,10 @@ public void Setup()
 	
 	
 }
+/* (non-Javadoc)
+ * @see Interface.Observer#update()
+ * used to update the passenger being processed by the desk
+ */
 public void update()
 {
 	passengerDetails.setText(model.getPassengerDetail());

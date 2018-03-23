@@ -69,7 +69,6 @@ public class DeskManager implements Subject{
 	{
 		for ( int i=0; i<openDesks; i++)
 		{
-			//desks.add(new Desk(i+1, queue,delay));
 			new Thread(desks.get(i)).start();
 		}
 	}
@@ -155,8 +154,10 @@ public class DeskManager implements Subject{
 	public int openDeskByID(int ID)
 	{
 		Desk desk = findDeskByID(ID);
+		// if no desk was found with giving ID return -1
 		if (desk == null) {
 			return -1;
+		// else if all the desks are closed then you can't open a desk
 		} else if (closeDesks) {
 			return 1; 
 		} else {

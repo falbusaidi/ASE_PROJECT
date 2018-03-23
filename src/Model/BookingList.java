@@ -90,18 +90,28 @@ public class BookingList {
 	 * Method to load bookinglist information
 	 * @param Filename  bane of the file 
 	 */
-	public void populateBookingDetails(String Filename) throws FileNotFoundException
+	public void populateBookingDetails(String Filename) 
 	{
-		File f = new File(Filename);
-		String Line;
-		Scanner scanner = new Scanner(f);
+		Scanner scanner=null;
+		try {
+			File f = new File(Filename);
+			String Line;
+			scanner = new Scanner(f);
 
-		while (scanner.hasNextLine()) {
-			Line = scanner.nextLine();
-			if(!Line.isEmpty())
-				readLine(Line);
+			while (scanner.hasNextLine()) {
+				Line = scanner.nextLine();
+				if(!Line.isEmpty())
+					readLine(Line);
+			}
+		}catch (FileNotFoundException e) {
+			
+			System.out.printf("FILE NAME %s  NOT FOUND %n", Filename);
+			System.err.println("ERROR " + e.getMessage());
+			System.exit(1);
 		}
-		scanner.close();
+		finally {
+			scanner.close();
+		}	
 
 	}
 

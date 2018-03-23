@@ -16,20 +16,29 @@ import Interface.Subject;
 
 
 
+/**
+ * @author fahad
+ * Purpose of this class is to work as a wrapper to the queue of passengers waiting to be checked-in
+ * the class implement the subject interface since it is used by GUI to display the Passenger list
+ *
+ */
 public class CheckInQueue implements Subject{
 
-	private String processMessage;
+	private String processMessage; // string to hold events
 
-	private ArrayList<Observer> observers; 
+	private ArrayList<Observer> observers; // contain list of observers
 
-	private Queue<Booking> CheckInQueue ; 
+	private Queue<Booking> CheckInQueue ; // the queue to hold passenger based on Fist in first out(FIFO) 
 	
-	private boolean checkinClosed; 
+	private boolean checkinClosed; // boolean to check if timer for check-in is over
 	
 	private boolean  done; // to indicate that no more passengers are going to be added to the queue
 
 
 
+	/**
+	 * Constructor method to initialized the observer, checkinQUeue 
+	 */
 	public CheckInQueue() {
 		
 		observers = new ArrayList<Observer>();
@@ -38,25 +47,32 @@ public class CheckInQueue implements Subject{
 		 checkinClosed=false; 
 	}
 
-	// Call to add Passenger into the line
 
+	/**
+	 * Method to add Passenger to end of the queue
+	 * @param booking  object which contains infromation of passenger
+	 */
 	public synchronized void EnQueue(Booking booking) {	
 
 		CheckInQueue.add(booking);
+		// notify the observer that passenger is removed
 		notifyObservers();
+		// when a new passenger is added to the queue , notify waiting Desks
 		notifyAll();
+		// log event
 		Log.getInstance().addEvent("Passenger added to Queue: "+String.format("%-7s,%s,%s,%3.2fkg, %3.0fcm x %3.0fcm x %3.0fcm",booking.GetBookingRef(),booking.GetPassenger().GetLastName(),booking.GetPassenger().GetFirstName(), booking.GetWeight(),booking.getHeight(),booking.getWidth(), booking.getDepth())+"\n");
 		
 
 	}
 
 	
-
-	// Call to remove the head of the Queue after finishing Checking In
-
+	/**
+	 * Call to remove the first passenger of the Queue 
+	 * @return return booking obejct which is used to retrive passenger and booking information
+	 */
 	public synchronized Booking DeQueue() {
 
-		// TODO : also add a check to see if all passengers have already being processed
+		// check if queue is empty if true threads wait else process the queue
 
 		while(CheckInQueue.isEmpty()) { 
 
@@ -71,8 +87,12 @@ public class CheckInQueue implements Subject{
 			}
 
 		}
+		// remove a passenger from the queue
 		Booking booking = CheckInQueue.remove();
+		
+		// update the queue display by notifying the observers
 		this.notifyObservers();
+		// log event 
 		Log.getInstance().addEvent("Passenger removed from Queue: "+String.format("%-7s,%s,%s,%3.2fkg, %3.0fcm x %3.0fcm x %3.0fcm",booking.GetBookingRef(),booking.GetPassenger().GetLastName(),booking.GetPassenger().GetFirstName(), booking.GetWeight(),booking.getHeight(),booking.getWidth(), booking.getDepth())+"\n");
 		return booking; 
 
@@ -136,6 +156,11 @@ public class CheckInQueue implements Subject{
 
 	
 
+	/* (non-Javadoc)
+	 * @see Interface.Subject#registerObserver(Interface.Observer)
+	 * method to register an observer
+	 * Have been copied from the Lecture Notes
+	 */
 	public void registerObserver(Observer obs){
 		
 		observers.add(obs); 
@@ -147,6 +172,7 @@ public class CheckInQueue implements Subject{
 	/**
 
 	 * De-register an observer with this subject
+	 * Have been copied from the Lecture Notes
 
 	 */
 
@@ -161,6 +187,7 @@ public class CheckInQueue implements Subject{
 	/**
 
 	 * Inform all registered observers that there's been an update
+	 * Have been copied from the Lecture Notes
 
 	 */
 
@@ -176,17 +203,22 @@ public class CheckInQueue implements Subject{
 
 	
 
+	/**
+	 * Used to get the Desk events to be displayed by the GUI
+	 * @return
+	 */
 	public String getQueueDetail() {
 		processMessage="Number of Passengers in the Queue: "+CheckInQueue.size()+"\n";
 
 		for(Booking object : CheckInQueue ) {
 
-			
+			// check if the desk are closed because the check-in time is over, if true indicat that passenger are not allowed to Board
 			if (this.checkinClosed) {
-				//processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+", Not allowed to Board \n";
 				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|Not allowed to Board|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
 				
 			}else {
+				
+				// if check-in time is not over display normal passenger infromation
 				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
 				
 			}    
@@ -195,6 +227,10 @@ public class CheckInQueue implements Subject{
 		return processMessage;
 	}
 
+	/**
+	 * used to return the Queue data structure
+	 * @return return a Queue Object of type bookings which contains all the bookings object which are used to get passenger information
+	 */
 	public Queue<Booking> getQueue(){
 
 		return CheckInQueue;
