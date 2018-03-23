@@ -14,7 +14,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import Controller.Controller.SetListener;
-import Controller.Controller.SetListenerDeskOpen;
 import Interface.Observer;
 import Model.DeskManager;
 import Model.PassengerThread;
@@ -140,10 +139,10 @@ public class AdminGUI extends JFrame implements Observer{
 			mainPanel.add(fieldsPanel, BorderLayout.CENTER);
 			
 			JPanel buttonPanel = new JPanel(new FlowLayout());
-			JB_OpenDesk = new JButton("Open Desk");
+			JB_OpenDesk = new JButton("Open");
 			buttonPanel.add(JB_OpenDesk);
 			
-			JB_CloseDesk = new JButton("Close Desk");
+			JB_CloseDesk = new JButton("Close");
 			buttonPanel.add(JB_CloseDesk);
 			
 			mainPanel.add(buttonPanel, BorderLayout.SOUTH);
@@ -179,6 +178,10 @@ public class AdminGUI extends JFrame implements Observer{
 		 */
 		public void addSetListener(ActionListener al) {
 			// Determine the action listener class and assign it to appropriate component
+			JBupdate.addActionListener(al);
+			JB_OpenDesk.addActionListener(al);
+			JB_CloseDesk.addActionListener(al);
+			/*
 			if (al instanceof SetListener) {
 				JBupdate.addActionListener(al);
 			}else if(al instanceof SetListenerDeskOpen){
@@ -186,7 +189,7 @@ public class AdminGUI extends JFrame implements Observer{
 			} else {
 				JB_CloseDesk.addActionListener(al);
 			}
-			
+			*/
 			
 		}
 
