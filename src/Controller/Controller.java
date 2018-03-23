@@ -33,10 +33,7 @@ public class Controller {
 		this.passengerThread = passengerThread;
 		this.view = Gui; 
 		deskModel.registerObserver(view);
-		view.addSetListener(new SetListener ());
-		view.addSetListener(new SetListenerDeskOpen ());
-		view.addSetListener(new SetListenerDeskClose ());
-		
+		view.addSetListener(new SetListener ());		
 	}
 	
 	/**
@@ -47,66 +44,60 @@ public class Controller {
 	public class SetListener implements ActionListener {
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 * This method hanles the event when use click up of Simulation speed
+		 * This method handles the event:
+		 * 1. when user click up of Simulation speed
+		 * 2.  handle event of opening a Desk
+		 * 3.  handle event of closing a Desk
 		 */
 		public void actionPerformed(ActionEvent e) {
-			// below code update the dealys on the desk thread to process the passengers
-			deskModel.setDelay(view.getDeskDelay());
-			// below code update the delays on the PassengerThread to simulate passenger arrival to queue
-			passengerThread.setDelay(view.getPassengerThreadDelay());
+			int result =0;
+			int ID=0; 
+			if (e.getActionCommand()=="Update") {
+				
+				// below code update the delys on the desk thread to process the passengers
+				deskModel.setDelay(view.getDeskDelay());
+				// below code update the delays on the PassengerThread to simulate passenger arrival to queue
+				passengerThread.setDelay(view.getPassengerThreadDelay());
+				
+			}else if (e.getActionCommand()=="Open") { // handle event of opening a Desk
+				
+				ID = view.getDeskID();
+				// if ID is not blank means ID exist and then call the model method to open the desk
+				if(ID!=0) {
+					result = deskModel.openDeskByID(ID);
+				}
+				 
+				// if result is 1 means checking time is over and can't open a desk
+				if (result == 1) {
+					JOptionPane.showMessageDialog(null, 
+		    				 "Check-in time is over");
+				//if result is -1 then provided ID is not correct
+				}else if( result == -1)
+				{
+					JOptionPane.showMessageDialog(null, 
+		    				 "Desk ID does not Exist, enter a valid ID");
+				}
+			}
+			else if (e.getActionCommand()=="Close") {//  handle event of closing Desk
+				 
+				ID = view.getDeskID();
+				// if ID is not blank means ID exist and then call the model method to open the desk
+				if(ID!=0) {
+					result = deskModel.closeDeskByID(ID);
+				}
+				// if result is 1 means checking time is over and can't open a desk
+				if (result == 1) {
+					JOptionPane.showMessageDialog(null, 
+		    				 "Check-in time is over");
+				//if result is -1 then provided ID is not correct
+				}else if( result == -1)
+				{
+					JOptionPane.showMessageDialog(null, 
+		    				 "Desk ID does not Exist, enter a valid ID");
+				}
+			}
+			
 		}
 	}
 	
-	/**
-	 * @author Fahad
-	 * A listener CLass to handle event of opening a Desk
-	 *
-	 */
-	public class SetListenerDeskOpen implements ActionListener {
-		public void actionPerformed(ActionEvent e) {	
-			int result =0; 
-			int ID = view.getDeskID();
-			// if ID is not blank means ID exist and then call the model method to open the desk
-			if(ID!=0) {
-				result = deskModel.openDeskByID(ID);
-			}
-			 
-			// if result is 1 means checking time is over and can't open a desk
-			if (result == 1) {
-				JOptionPane.showMessageDialog(null, 
-	    				 "Check-in time is over");
-			//if result is -1 then provided ID is not correct
-			}else if( result == -1)
-			{
-				JOptionPane.showMessageDialog(null, 
-	    				 "Desk ID does not Exist, enter a valid ID");
-			}
-		}
-	}
-	
-	/**
-	 * @author fahad
-	 *A listener CLass to handle event of opening a Desk
-	 */
-	public class SetListenerDeskClose implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			int result =0; 
-			int ID = view.getDeskID();
-			// if ID is not blank means ID exist and then call the model method to open the desk
-			if(ID!=0) {
-				result = deskModel.closeDeskByID(ID);
-			}
-			// if result is 1 means checking time is over and can't open a desk
-			if (result == 1) {
-				JOptionPane.showMessageDialog(null, 
-	    				 "Check-in time is over");
-			//if result is -1 then provided ID is not correct
-			}else if( result == -1)
-			{
-				JOptionPane.showMessageDialog(null, 
-	    				 "Desk ID does not Exist, enter a valid ID");
-			}
-					
-		}
-	}
 }

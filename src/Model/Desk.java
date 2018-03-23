@@ -67,51 +67,53 @@ public class Desk implements Runnable , Subject{
 			processMessage+="Desk: "+this.deskID+" is OPEN"+"\n";
 			// notify observer GUI to display the message 
 			notifyObservers();
-			
-			
+					
 			//check if no more Passenger to add to the queue and the queue is empty then stop and close the counter
-			if (queue.isDone() && queue.isEmpty()) {
-				running = false; 
+			if (queue.isDone()) {
+				//running = false; 
 				processMessage="";
 				processMessage+="Desk: "+this.deskID+" is closed"+"\n";
 				processMessage+="All Passengers boarded \n";
 				notifyObservers();
 				// log events
 				Log.getInstance().writeLog();
-			}	
-			
-			// Get the passenger from the Queue
-			booking = queue.DeQueue();
-			
-			if ( booking !=null)
-			{
-				// check in the Passenger and get any excess fees
-				double excess = booking.CheckIn();
-			
-				// write event massges and notify observer
-				processMessage+=("Processing Passenger: "+booking.GetBookingRef()+" , "+booking.GetPassenger().GetLastName()+","+booking.GetPassenger().GetFirstName()+"\n");
-				notifyObservers();
-				processMessage+=("Baggage weight(Kg) : "+String.format("%.2f", booking.GetWeight())+"\n");
-				processMessage+=("Baggage Dimensions(H*W*D): "+booking.getHeight()+"x"+booking.getWidth()+"x"+booking.getDepth()+"\n");
-				notifyObservers();
-				processMessage+="Excess Fees: £"+String.format("%.2f", excess)+"\n"; 
-				notifyObservers();
-				Log.getInstance().addEvent(processMessage); // log events
+			}else {
+				// Get the passenger from the Queue
 				
-				// add the Passenger to flight
-				flightlist.addpassenger(booking);
+				booking = queue.DeQueue();
 				
+				if ( booking !=null)
+				{
+					// check in the Passenger and get any excess fees
+					double excess = booking.CheckIn();
 				
-				// Thread sleep based on delay
-				try {
+					// write event massages and notify observer
+					processMessage+=("Processing Passenger: "+booking.GetBookingRef()+" , "+booking.GetPassenger().GetLastName()+","+booking.GetPassenger().GetFirstName()+"\n");
+					notifyObservers();
+					processMessage+=("Baggage weight(Kg) : "+String.format("%.2f", booking.GetWeight())+"\n");
+					processMessage+=("Baggage Dimensions(H*W*D): "+booking.getHeight()+"x"+booking.getWidth()+"x"+booking.getDepth()+"\n");
+					notifyObservers();
+					processMessage+="Excess Fees: £"+String.format("%.2f", excess)+"\n"; 
+					notifyObservers();
+					Log.getInstance().addEvent(processMessage); // log events
 					
-					Thread.sleep(delay);
-				} catch (InterruptedException e) {
+					// add the Passenger to flight
+					flightlist.addpassenger(booking);
 					
-					e.printStackTrace();
+					
+					// Thread sleep based on delay
+					try {
+						
+						Thread.sleep(delay);
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+					
 				}
-				
 			}
+			
+			
 				
 			
 		}

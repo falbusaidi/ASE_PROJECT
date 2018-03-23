@@ -68,18 +68,21 @@ public class CheckInQueue implements Subject{
 	
 	/**
 	 * Call to remove the first passenger of the Queue 
-	 * @return return booking obejct which is used to retrive passenger and booking information
+	 * @return return booking object which is used to retrieve passenger and booking information
 	 */
 	public synchronized Booking DeQueue() {
 
 		// check if queue is empty if true threads wait else process the queue
-
 		while(CheckInQueue.isEmpty()) { 
 
 			try {
-
-				wait();
-
+				
+				wait(100);
+				// check if there are not more passenger to add and the queue is empty then exit
+				if(isDone()) {
+					return null; 
+				}
+				
 			} catch (InterruptedException e) {
 
 				e.printStackTrace();
@@ -88,7 +91,8 @@ public class CheckInQueue implements Subject{
 
 		}
 		// remove a passenger from the queue
-		Booking booking = CheckInQueue.remove();
+		
+		Booking booking = CheckInQueue.remove();	
 		
 		// update the queue display by notifying the observers
 		this.notifyObservers();
@@ -112,9 +116,7 @@ public class CheckInQueue implements Subject{
 
 	public boolean isDone() {
 
-		
-
-		return done;
+		return done && CheckInQueue.isEmpty() ;
 
 	}
 
@@ -129,8 +131,6 @@ public class CheckInQueue implements Subject{
 	 */
 
 	public void setDone(boolean done) {
-
-	
 
 		this.done = done;
 
@@ -213,7 +213,7 @@ public class CheckInQueue implements Subject{
 		for(Booking object : CheckInQueue ) {
 
 			// check if the desk are closed because the check-in time is over, if true indicat that passenger are not allowed to Board
-			if (this.checkinClosed) {
+			if (checkinClosed) {
 				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|Not allowed to Board|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
 				
 			}else {
