@@ -1,7 +1,5 @@
 package Model;
 
-
-
 import java.util.ArrayList;
 
 import java.util.LinkedList;
@@ -14,18 +12,11 @@ import Interface.Observer;
 
 import Interface.Subject;
 
-
-
 public class CheckInQueue implements Subject{
-
 	private String processMessage;
-
-	private ArrayList<Observer> observers; 
-
+	private ArrayList<Observer> observers;
 	private Queue<Booking> CheckInQueue ; 
-	
 	private boolean checkinClosed; 
-	
 	private boolean  done; // to indicate that no more passengers are going to be added to the queue
 
 
@@ -39,7 +30,9 @@ public class CheckInQueue implements Subject{
 	}
 
 	// Call to add Passenger into the line
-
+	/**
+	 * Method to put passenger in the Queeue
+	 */
 	public synchronized void EnQueue(Booking booking) {	
 
 		CheckInQueue.add(booking);
@@ -53,19 +46,15 @@ public class CheckInQueue implements Subject{
 	
 
 	// Call to remove the head of the Queue after finishing Checking In
-
+	/**
+	 * Method to take the Queue that have been passed to the desk out of the Queue
+	 */
 	public synchronized Booking DeQueue() {
-
 		// TODO : also add a check to see if all passengers have already being processed
-
 		while(CheckInQueue.isEmpty()) { 
-
 			try {
-
 				wait();
-
 			} catch (InterruptedException e) {
-
 				e.printStackTrace();
 
 			}
@@ -81,37 +70,24 @@ public class CheckInQueue implements Subject{
 	
 
 	/**
-
 	 * Return true if the producer "passengerThread" finish processing all the bookings from the file and no more passengers to be added
-
 	 * into the queue, otherwise false
-
 	 * @return true is no more passengers to add to the queue, otherwise false
 
 	 */
 
 	public boolean isDone() {
-
-		
-
 		return done;
-
 	}
 
 
 
 	/**
-
 	 * Set a boolean done which indicates that no more passengers are going to be added to the queue
-
 	 * @param done a boolean 
-
 	 */
 
 	public void setDone(boolean done) {
-
-	
-
 		this.done = done;
 
 	}
@@ -121,23 +97,18 @@ public class CheckInQueue implements Subject{
 	/**
 
 	 * check is queue is empty
-
 	 * @return true if empty otherwise false
-
 	 */
 
 	public boolean isEmpty() {
-
-		
-
 		return CheckInQueue.size() == 0; 
 
 	}
 
-	
-
+	/**
+	 * Register an observer with this subject
+	 */
 	public void registerObserver(Observer obs){
-		
 		observers.add(obs); 
 
 	}
@@ -145,13 +116,10 @@ public class CheckInQueue implements Subject{
 
 
 	/**
-
 	 * De-register an observer with this subject
-
 	 */
 
 	public void removeObserver(Observer obs) {
-
 		observers.remove(obs); 
 
 	}
@@ -159,44 +127,41 @@ public class CheckInQueue implements Subject{
 
 
 	/**
-
 	 * Inform all registered observers that there's been an update
-
 	 */
 
 	public void notifyObservers() {
-
 		for(Observer obs: observers) {
-
 			obs.update();
 
 		}
 
 	}
-
+	/**
+	 * method to return a string to be display in the GUI
+	 * 
+	 */
 	
 
 	public String getQueueDetail() {
 		processMessage="Number of Passengers in the Queue: "+CheckInQueue.size()+"\n";
-
 		for(Booking object : CheckInQueue ) {
-
-			
+	
 			if (this.checkinClosed) {
 				//processMessage += object.GetBookingRef()+", "+object.GetPassenger().GetLastName()+", Not allowed to Board \n";
-				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|Not allowed to Board|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
-				
+				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|Not allowed to Board|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 		
 			}else {
-				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
-				
+				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 			
 			}    
 
 		}
 		return processMessage;
 	}
-
+	/**
+	 * method to return the Queue<Booking>
+	 * 
+	 */
 	public Queue<Booking> getQueue(){
-
 		return CheckInQueue;
 
 	}
