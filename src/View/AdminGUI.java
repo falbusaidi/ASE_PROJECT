@@ -181,16 +181,7 @@ public class AdminGUI extends JFrame implements Observer{
 			JBupdate.addActionListener(al);
 			JB_OpenDesk.addActionListener(al);
 			JB_CloseDesk.addActionListener(al);
-			/*
-			if (al instanceof SetListener) {
-				JBupdate.addActionListener(al);
-			}else if(al instanceof SetListenerDeskOpen){
-				JB_OpenDesk.addActionListener(al);
-			} else {
-				JB_CloseDesk.addActionListener(al);
-			}
-			*/
-			
+						
 		}
 
 		/**
