@@ -214,12 +214,12 @@ public class CheckInQueue implements Subject{
 
 			// check if the desk are closed because the check-in time is over, if true indicat that passenger are not allowed to Board
 			if (checkinClosed) {
-				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|Not allowed to Board|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
+				processMessage += String.format("|%-7s|%-15s|%-15s|%-3s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|Not allowed to Board|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(),object.GetFlight().getCode(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
 				
 			}else {
 				
 				// if check-in time is not over display normal passenger infromation
-				processMessage += String.format("|%-7s|%-15s|%-15s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
+				processMessage += String.format("|%-7s|%-15s|%-15s|%-3s|%3.2fkg|%3.0fcm x %3.0fcm x %3.0fcm|",object.GetBookingRef(),object.GetPassenger().GetLastName(),object.GetPassenger().GetFirstName(),object.GetFlight().getCode(), object.GetWeight(),object.getHeight(),object.getWidth(), object.getDepth())+"\n"; 
 				
 			}    
 
